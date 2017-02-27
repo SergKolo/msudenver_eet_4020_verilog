@@ -1,0 +1,21 @@
+|AndGate
+FG <= GatelevelAND:inst.Fg
+A => GatelevelAND:inst.Ag
+A => veriogAND:inst2.Av
+B => GatelevelAND:inst.Bg
+B => veriogAND:inst2.Bv
+FV <= veriogAND:inst2.Fv
+
+
+|AndGate|GatelevelAND:inst
+Fg <= inst.DB_MAX_OUTPUT_PORT_TYPE
+Ag => inst.IN0
+Bg => inst.IN1
+
+
+|AndGate|veriogAND:inst2
+Fv <= v_and.DB_MAX_OUTPUT_PORT_TYPE
+Av => v_and.IN0
+Bv => v_and.IN1
+
+

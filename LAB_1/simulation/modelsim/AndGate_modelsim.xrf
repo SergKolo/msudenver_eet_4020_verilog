@@ -1,0 +1,12 @@
+vendor_name = ModelSim
+source_file = 1, /home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_1/AndGate.bdf
+source_file = 1, /home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_1/GatelevelAND.bdf
+source_file = 1, /home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_1/VerilogAND.v
+source_file = 1, /home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_1/db/AndGate.cbx.xml
+design_name = AndGate
+instance = comp, \FG~output , FG~output, AndGate, 1
+instance = comp, \FV~output , FV~output, AndGate, 1
+instance = comp, \A~input , A~input, AndGate, 1
+instance = comp, \B~input , B~input, AndGate, 1
+instance = comp, \inst|inst , inst|inst, AndGate, 1
+instance = comp, \~QUARTUS_CREATED_GND~I , ~QUARTUS_CREATED_GND~I, AndGate, 1
