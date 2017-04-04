@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_3/simulation/modelsim
+vseven_seg_decoder
+Z1 !s110 1490825570
+!i10b 1
+!s100 BXGfAkifnBfilRc?:1]zA1
+IB5Kd@ZhS0DQRzBe5kQn5:1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1490825041
+Z4 8/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_3/seven_seg_decoder.v
+Z5 F/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_3/seven_seg_decoder.v
+L0 9
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1490825569.000000
+Z8 !s107 /home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_3/seven_seg_decoder.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_3|/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_3/seven_seg_decoder.v|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work +incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_3
+Z12 tCvgOpt 0
+vstimulus_seven_seg
+R1
+!i10b 1
+!s100 ^[Y8^d^zmLOiLemBH1Q>>2
+IknIF@TIZCAiZ;i;4zTGGD1
+R2
+R0
+R3
+R4
+R5
+L0 73
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
