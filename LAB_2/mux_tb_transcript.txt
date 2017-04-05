@@ -1,0 +1,51 @@
+# do two_by_one_mux_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying /home/xieerqi/intelFPGA_lite/16.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_2 {/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_2/two_by_one_mux.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:17:18 on Mar 07,2017
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_2" /home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_2/two_by_one_mux.v 
+# -- Compiling module two_by_one_mux
+# -- Compiling module mux_tb
+# 
+# Top level modules:
+# 	mux_tb
+# End time: 18:17:18 on Mar 07,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# 
+# stdin: <EOF>
+vsim work.mux_tb
+# vsim work.mux_tb 
+# Start time: 18:17:23 on Mar 07,2017
+# Loading work.mux_tb
+# Loading work.two_by_one_mux
+run
+#                    0x_in=0,y_in=0,sel=0,---m_out=0
+# 
+#                   20x_in=0,y_in=1,sel=0,---m_out=0
+# 
+#                   30x_in=1,y_in=0,sel=0,---m_out=1
+# 
+#                   40x_in=1,y_in=1,sel=0,---m_out=1
+# 
+#                   50x_in=0,y_in=0,sel=1,---m_out=0
+# 
+#                   60x_in=0,y_in=1,sel=1,---m_out=1
+# 
+#                   70x_in=1,y_in=0,sel=1,---m_out=0
+# 
+#                   80x_in=1,y_in=1,sel=1,---m_out=1
+# 
+set PrefMain(saveFile) mux_tb_transcript
+# mux_tb_transcript
+set PrefMain(saveFile) /home/xieerqi/GIT/mux_tb_transcript
+# /home/xieerqi/GIT/mux_tb_transcript

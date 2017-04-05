@@ -1,0 +1,8 @@
+|two_by_one_mux
+m_out <= or1.DB_MAX_OUTPUT_PORT_TYPE
+x_in => and1.IN0
+y_in => and2.IN0
+sel => and2.IN1
+sel => and1.IN1
+
+

@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_2/simulation/modelsim
+vmux_tb
+Z1 !s110 1488935838
+!i10b 1
+!s100 1GnYdShNPNlYoHe`D<6CM2
+IP@J=@B9HcOKkD=?aZFlz52
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1488935313
+Z4 8/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_2/two_by_one_mux.v
+Z5 F/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_2/two_by_one_mux.v
+L0 12
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1488935838.000000
+Z8 !s107 /home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_2/two_by_one_mux.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_2|/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_2/two_by_one_mux.v|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work +incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_2
+Z12 tCvgOpt 0
+vtwo_by_one_mux
+R1
+!i10b 1
+!s100 znkCZMoXo^6VzMcELFa]^0
+IYSiRGcAd@AXK`fLWGiF=H3
+R2
+R0
+R3
+R4
+R5
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
