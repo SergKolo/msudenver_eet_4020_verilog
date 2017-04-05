@@ -1,5 +1,5 @@
 Flow report for top_seven_seg_decoder
-Tue Apr  4 14:32:51 2017
+Tue Apr  4 18:32:53 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Tue Apr  4 14:32:51 2017       ;
+; Flow Status                     ; Successful - Tue Apr  4 18:32:53 2017       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; top_seven_seg_decoder                       ;
 ; Top-level Entity Name           ; seven_seg_decoder                           ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+-----------------------+
 ; Option            ; Setting               ;
 +-------------------+-----------------------+
-; Start date & time ; 04/04/2017 14:28:10   ;
+; Start date & time ; 04/04/2017 18:27:54   ;
 ; Main task         ; Compilation           ;
 ; Revision Name     ; top_seven_seg_decoder ;
 +-------------------+-----------------------+
@@ -79,7 +79,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+-----------------------+-------------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value         ; Entity Name       ; Section Id     ;
 +-------------------------------------+----------------------------------------+-----------------------+-------------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 229056129618941.149133769005279        ; --                    ; --                ; --             ;
+; COMPILER_SIGNATURE_ID               ; 229056129618941.149135207416651        ; --                    ; --                ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --                    ; --                ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>                ; --                ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --                    ; --                ; eda_simulation ;
@@ -100,12 +100,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:52     ; 1.0                     ; 962 MB              ; 00:01:07                           ;
-; Fitter                    ; 00:02:55     ; 1.0                     ; 2040 MB             ; 00:02:37                           ;
-; Assembler                 ; 00:00:23     ; 1.0                     ; 970 MB              ; 00:00:20                           ;
-; TimeQuest Timing Analyzer ; 00:00:14     ; 1.0                     ; 1157 MB             ; 00:00:13                           ;
-; EDA Netlist Writer        ; 00:00:04     ; 1.0                     ; 1140 MB             ; 00:00:03                           ;
-; Total                     ; 00:04:28     ; --                      ; --                  ; 00:04:20                           ;
+; Analysis & Synthesis      ; 00:00:58     ; 1.0                     ; 963 MB              ; 00:01:06                           ;
+; Fitter                    ; 00:02:47     ; 1.0                     ; 2039 MB             ; 00:02:25                           ;
+; Assembler                 ; 00:00:24     ; 1.0                     ; 972 MB              ; 00:00:20                           ;
+; TimeQuest Timing Analyzer ; 00:00:22     ; 1.0                     ; 1154 MB             ; 00:00:12                           ;
+; EDA Netlist Writer        ; 00:00:06     ; 1.0                     ; 1137 MB             ; 00:00:04                           ;
+; Total                     ; 00:04:37     ; --                      ; --                  ; 00:04:07                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

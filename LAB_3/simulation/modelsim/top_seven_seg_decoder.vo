@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition"
 
-// DATE "04/04/2017 14:32:51"
+// DATE "04/04/2017 18:32:53"
 
 // 
 // Device: Altera 5CSEMA5F31C6 Package FBGA896
@@ -44,9 +44,9 @@ input 	[3:0] bin_in;
 // led_out[5]	=>  Location: PIN_AG28,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // led_out[6]	=>  Location: PIN_AH28,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // bin_in[0]	=>  Location: PIN_AB12,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// bin_in[2]	=>  Location: PIN_AF9,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// bin_in[1]	=>  Location: PIN_AC12,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // bin_in[3]	=>  Location: PIN_AF10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// bin_in[1]	=>  Location: PIN_AC12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// bin_in[2]	=>  Location: PIN_AF9,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -65,18 +65,18 @@ wire \bin_in[3]~input_o ;
 wire \bin_in[2]~input_o ;
 wire \bin_in[1]~input_o ;
 wire \bin_in[0]~input_o ;
-wire \WideOr6~0_combout ;
-wire \WideOr5~0_combout ;
-wire \WideOr4~0_combout ;
-wire \WideOr3~0_combout ;
-wire \WideOr2~0_combout ;
-wire \WideOr1~0_combout ;
-wire \WideOr0~combout ;
+wire \led_out~0_combout ;
+wire \led_out~1_combout ;
+wire \led_out~2_combout ;
+wire \led_out~3_combout ;
+wire \led_out~4_combout ;
+wire \led_out~5_combout ;
+wire \led_out~6_combout ;
 
 
 // Location: IOOBUF_X89_Y8_N39
 cyclonev_io_obuf \led_out[0]~output (
-	.i(\WideOr6~0_combout ),
+	.i(\led_out~0_combout ),
 	.oe(vcc),
 	.dynamicterminationcontrol(gnd),
 	.seriesterminationcontrol(16'b0000000000000000),
@@ -92,7 +92,7 @@ defparam \led_out[0]~output .shift_series_termination_control = "false";
 
 // Location: IOOBUF_X89_Y11_N79
 cyclonev_io_obuf \led_out[1]~output (
-	.i(\WideOr5~0_combout ),
+	.i(\led_out~1_combout ),
 	.oe(vcc),
 	.dynamicterminationcontrol(gnd),
 	.seriesterminationcontrol(16'b0000000000000000),
@@ -108,7 +108,7 @@ defparam \led_out[1]~output .shift_series_termination_control = "false";
 
 // Location: IOOBUF_X89_Y11_N96
 cyclonev_io_obuf \led_out[2]~output (
-	.i(\WideOr4~0_combout ),
+	.i(\led_out~2_combout ),
 	.oe(vcc),
 	.dynamicterminationcontrol(gnd),
 	.seriesterminationcontrol(16'b0000000000000000),
@@ -124,7 +124,7 @@ defparam \led_out[2]~output .shift_series_termination_control = "false";
 
 // Location: IOOBUF_X89_Y4_N79
 cyclonev_io_obuf \led_out[3]~output (
-	.i(\WideOr3~0_combout ),
+	.i(!\led_out~3_combout ),
 	.oe(vcc),
 	.dynamicterminationcontrol(gnd),
 	.seriesterminationcontrol(16'b0000000000000000),
@@ -140,7 +140,7 @@ defparam \led_out[3]~output .shift_series_termination_control = "false";
 
 // Location: IOOBUF_X89_Y13_N56
 cyclonev_io_obuf \led_out[4]~output (
-	.i(\WideOr2~0_combout ),
+	.i(\led_out~4_combout ),
 	.oe(vcc),
 	.dynamicterminationcontrol(gnd),
 	.seriesterminationcontrol(16'b0000000000000000),
@@ -156,7 +156,7 @@ defparam \led_out[4]~output .shift_series_termination_control = "false";
 
 // Location: IOOBUF_X89_Y13_N39
 cyclonev_io_obuf \led_out[5]~output (
-	.i(\WideOr1~0_combout ),
+	.i(\led_out~5_combout ),
 	.oe(vcc),
 	.dynamicterminationcontrol(gnd),
 	.seriesterminationcontrol(16'b0000000000000000),
@@ -172,7 +172,7 @@ defparam \led_out[5]~output .shift_series_termination_control = "false";
 
 // Location: IOOBUF_X89_Y4_N96
 cyclonev_io_obuf \led_out[6]~output (
-	.i(\WideOr0~combout ),
+	.i(\led_out~6_combout ),
 	.oe(vcc),
 	.dynamicterminationcontrol(gnd),
 	.seriesterminationcontrol(16'b0000000000000000),
@@ -231,9 +231,9 @@ defparam \bin_in[0]~input .simulate_z_as = "z";
 // synopsys translate_on
 
 // Location: MLABCELL_X84_Y8_N0
-cyclonev_lcell_comb \WideOr6~0 (
+cyclonev_lcell_comb \led_out~0 (
 // Equation(s):
-// \WideOr6~0_combout  = ( \bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( (\bin_in[3]~input_o  & !\bin_in[2]~input_o ) ) ) ) # ( !\bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( !\bin_in[3]~input_o  $ (\bin_in[2]~input_o ) ) ) ) # ( !\bin_in[1]~input_o  & ( 
+// \led_out~0_combout  = ( \bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( (\bin_in[3]~input_o  & !\bin_in[2]~input_o ) ) ) ) # ( !\bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( !\bin_in[3]~input_o  $ (\bin_in[2]~input_o ) ) ) ) # ( !\bin_in[1]~input_o  & ( 
 // !\bin_in[0]~input_o  & ( (!\bin_in[3]~input_o  & \bin_in[2]~input_o ) ) ) )
 
 	.dataa(gnd),
@@ -245,20 +245,20 @@ cyclonev_lcell_comb \WideOr6~0 (
 	.datag(gnd),
 	.cin(gnd),
 	.sharein(gnd),
-	.combout(\WideOr6~0_combout ),
+	.combout(\led_out~0_combout ),
 	.sumout(),
 	.cout(),
 	.shareout());
 // synopsys translate_off
-defparam \WideOr6~0 .extended_lut = "off";
-defparam \WideOr6~0 .lut_mask = 64'h00CC0000CC333300;
-defparam \WideOr6~0 .shared_arith = "off";
+defparam \led_out~0 .extended_lut = "off";
+defparam \led_out~0 .lut_mask = 64'h00CC0000CC333300;
+defparam \led_out~0 .shared_arith = "off";
 // synopsys translate_on
 
 // Location: MLABCELL_X84_Y8_N39
-cyclonev_lcell_comb \WideOr5~0 (
+cyclonev_lcell_comb \led_out~1 (
 // Equation(s):
-// \WideOr5~0_combout  = ( \bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( \bin_in[3]~input_o  ) ) ) # ( !\bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( (\bin_in[2]~input_o  & !\bin_in[3]~input_o ) ) ) ) # ( \bin_in[1]~input_o  & ( !\bin_in[0]~input_o  & ( 
+// \led_out~1_combout  = ( \bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( \bin_in[3]~input_o  ) ) ) # ( !\bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( (\bin_in[2]~input_o  & !\bin_in[3]~input_o ) ) ) ) # ( \bin_in[1]~input_o  & ( !\bin_in[0]~input_o  & ( 
 // \bin_in[2]~input_o  ) ) ) # ( !\bin_in[1]~input_o  & ( !\bin_in[0]~input_o  & ( (\bin_in[2]~input_o  & \bin_in[3]~input_o ) ) ) )
 
 	.dataa(gnd),
@@ -270,20 +270,20 @@ cyclonev_lcell_comb \WideOr5~0 (
 	.datag(gnd),
 	.cin(gnd),
 	.sharein(gnd),
-	.combout(\WideOr5~0_combout ),
+	.combout(\led_out~1_combout ),
 	.sumout(),
 	.cout(),
 	.shareout());
 // synopsys translate_off
-defparam \WideOr5~0 .extended_lut = "off";
-defparam \WideOr5~0 .lut_mask = 64'h0303333330300F0F;
-defparam \WideOr5~0 .shared_arith = "off";
+defparam \led_out~1 .extended_lut = "off";
+defparam \led_out~1 .lut_mask = 64'h0303333330300F0F;
+defparam \led_out~1 .shared_arith = "off";
 // synopsys translate_on
 
 // Location: MLABCELL_X84_Y8_N12
-cyclonev_lcell_comb \WideOr4~0 (
+cyclonev_lcell_comb \led_out~2 (
 // Equation(s):
-// \WideOr4~0_combout  = ( \bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( (\bin_in[3]~input_o  & \bin_in[2]~input_o ) ) ) ) # ( \bin_in[1]~input_o  & ( !\bin_in[0]~input_o  & ( !\bin_in[3]~input_o  $ (\bin_in[2]~input_o ) ) ) ) # ( !\bin_in[1]~input_o  & ( 
+// \led_out~2_combout  = ( \bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( (\bin_in[3]~input_o  & \bin_in[2]~input_o ) ) ) ) # ( \bin_in[1]~input_o  & ( !\bin_in[0]~input_o  & ( !\bin_in[3]~input_o  $ (\bin_in[2]~input_o ) ) ) ) # ( !\bin_in[1]~input_o  & ( 
 // !\bin_in[0]~input_o  & ( (\bin_in[3]~input_o  & \bin_in[2]~input_o ) ) ) )
 
 	.dataa(gnd),
@@ -295,21 +295,21 @@ cyclonev_lcell_comb \WideOr4~0 (
 	.datag(gnd),
 	.cin(gnd),
 	.sharein(gnd),
-	.combout(\WideOr4~0_combout ),
+	.combout(\led_out~2_combout ),
 	.sumout(),
 	.cout(),
 	.shareout());
 // synopsys translate_off
-defparam \WideOr4~0 .extended_lut = "off";
-defparam \WideOr4~0 .lut_mask = 64'h0033CC3300000033;
-defparam \WideOr4~0 .shared_arith = "off";
+defparam \led_out~2 .extended_lut = "off";
+defparam \led_out~2 .lut_mask = 64'h0033CC3300000033;
+defparam \led_out~2 .shared_arith = "off";
 // synopsys translate_on
 
 // Location: MLABCELL_X84_Y8_N21
-cyclonev_lcell_comb \WideOr3~0 (
+cyclonev_lcell_comb \led_out~3 (
 // Equation(s):
-// \WideOr3~0_combout  = ( \bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( \bin_in[2]~input_o  ) ) ) # ( !\bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( !\bin_in[2]~input_o  ) ) ) # ( \bin_in[1]~input_o  & ( !\bin_in[0]~input_o  & ( (!\bin_in[2]~input_o  & 
-// \bin_in[3]~input_o ) ) ) ) # ( !\bin_in[1]~input_o  & ( !\bin_in[0]~input_o  & ( (\bin_in[2]~input_o  & !\bin_in[3]~input_o ) ) ) )
+// \led_out~3_combout  = ( \bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( !\bin_in[2]~input_o  ) ) ) # ( !\bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( \bin_in[2]~input_o  ) ) ) # ( \bin_in[1]~input_o  & ( !\bin_in[0]~input_o  & ( (!\bin_in[3]~input_o ) # 
+// (\bin_in[2]~input_o ) ) ) ) # ( !\bin_in[1]~input_o  & ( !\bin_in[0]~input_o  & ( (!\bin_in[2]~input_o ) # (\bin_in[3]~input_o ) ) ) )
 
 	.dataa(gnd),
 	.datab(!\bin_in[2]~input_o ),
@@ -320,20 +320,20 @@ cyclonev_lcell_comb \WideOr3~0 (
 	.datag(gnd),
 	.cin(gnd),
 	.sharein(gnd),
-	.combout(\WideOr3~0_combout ),
+	.combout(\led_out~3_combout ),
 	.sumout(),
 	.cout(),
 	.shareout());
 // synopsys translate_off
-defparam \WideOr3~0 .extended_lut = "off";
-defparam \WideOr3~0 .lut_mask = 64'h30300C0CCCCC3333;
-defparam \WideOr3~0 .shared_arith = "off";
+defparam \led_out~3 .extended_lut = "off";
+defparam \led_out~3 .lut_mask = 64'hCFCFF3F33333CCCC;
+defparam \led_out~3 .shared_arith = "off";
 // synopsys translate_on
 
 // Location: MLABCELL_X84_Y8_N24
-cyclonev_lcell_comb \WideOr2~0 (
+cyclonev_lcell_comb \led_out~4 (
 // Equation(s):
-// \WideOr2~0_combout  = ( \bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( !\bin_in[3]~input_o  ) ) ) # ( !\bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( (!\bin_in[3]~input_o ) # (!\bin_in[2]~input_o ) ) ) ) # ( !\bin_in[1]~input_o  & ( !\bin_in[0]~input_o  
+// \led_out~4_combout  = ( \bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( !\bin_in[3]~input_o  ) ) ) # ( !\bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( (!\bin_in[3]~input_o ) # (!\bin_in[2]~input_o ) ) ) ) # ( !\bin_in[1]~input_o  & ( !\bin_in[0]~input_o  
 // & ( (!\bin_in[3]~input_o  & \bin_in[2]~input_o ) ) ) )
 
 	.dataa(gnd),
@@ -345,20 +345,20 @@ cyclonev_lcell_comb \WideOr2~0 (
 	.datag(gnd),
 	.cin(gnd),
 	.sharein(gnd),
-	.combout(\WideOr2~0_combout ),
+	.combout(\led_out~4_combout ),
 	.sumout(),
 	.cout(),
 	.shareout());
 // synopsys translate_off
-defparam \WideOr2~0 .extended_lut = "off";
-defparam \WideOr2~0 .lut_mask = 64'h00CC0000FFCCCCCC;
-defparam \WideOr2~0 .shared_arith = "off";
+defparam \led_out~4 .extended_lut = "off";
+defparam \led_out~4 .lut_mask = 64'h00CC0000FFCCCCCC;
+defparam \led_out~4 .shared_arith = "off";
 // synopsys translate_on
 
 // Location: MLABCELL_X84_Y8_N33
-cyclonev_lcell_comb \WideOr1~0 (
+cyclonev_lcell_comb \led_out~5 (
 // Equation(s):
-// \WideOr1~0_combout  = ( \bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( !\bin_in[3]~input_o  ) ) ) # ( !\bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( !\bin_in[2]~input_o  $ (\bin_in[3]~input_o ) ) ) ) # ( \bin_in[1]~input_o  & ( !\bin_in[0]~input_o  & ( 
+// \led_out~5_combout  = ( \bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( !\bin_in[3]~input_o  ) ) ) # ( !\bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( !\bin_in[2]~input_o  $ (\bin_in[3]~input_o ) ) ) ) # ( \bin_in[1]~input_o  & ( !\bin_in[0]~input_o  & ( 
 // (!\bin_in[2]~input_o  & !\bin_in[3]~input_o ) ) ) )
 
 	.dataa(gnd),
@@ -370,21 +370,21 @@ cyclonev_lcell_comb \WideOr1~0 (
 	.datag(gnd),
 	.cin(gnd),
 	.sharein(gnd),
-	.combout(\WideOr1~0_combout ),
+	.combout(\led_out~5_combout ),
 	.sumout(),
 	.cout(),
 	.shareout());
 // synopsys translate_off
-defparam \WideOr1~0 .extended_lut = "off";
-defparam \WideOr1~0 .lut_mask = 64'h0000C0C0C3C3F0F0;
-defparam \WideOr1~0 .shared_arith = "off";
+defparam \led_out~5 .extended_lut = "off";
+defparam \led_out~5 .lut_mask = 64'h0000C0C0C3C3F0F0;
+defparam \led_out~5 .shared_arith = "off";
 // synopsys translate_on
 
 // Location: MLABCELL_X84_Y8_N6
-cyclonev_lcell_comb WideOr0(
+cyclonev_lcell_comb \led_out~6 (
 // Equation(s):
-// \WideOr0~combout  = ( \bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( (!\bin_in[3]~input_o  & \bin_in[2]~input_o ) ) ) ) # ( !\bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( (!\bin_in[3]~input_o  & !\bin_in[2]~input_o ) ) ) ) # ( !\bin_in[1]~input_o  & ( 
-// !\bin_in[0]~input_o  & ( !\bin_in[3]~input_o  $ (\bin_in[2]~input_o ) ) ) )
+// \led_out~6_combout  = ( \bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( (!\bin_in[3]~input_o  & \bin_in[2]~input_o ) ) ) ) # ( !\bin_in[1]~input_o  & ( \bin_in[0]~input_o  & ( (!\bin_in[3]~input_o  & !\bin_in[2]~input_o ) ) ) ) # ( !\bin_in[1]~input_o  & 
+// ( !\bin_in[0]~input_o  & ( !\bin_in[3]~input_o  $ (\bin_in[2]~input_o ) ) ) )
 
 	.dataa(gnd),
 	.datab(!\bin_in[3]~input_o ),
@@ -395,14 +395,14 @@ cyclonev_lcell_comb WideOr0(
 	.datag(gnd),
 	.cin(gnd),
 	.sharein(gnd),
-	.combout(\WideOr0~combout ),
+	.combout(\led_out~6_combout ),
 	.sumout(),
 	.cout(),
 	.shareout());
 // synopsys translate_off
-defparam WideOr0.extended_lut = "off";
-defparam WideOr0.lut_mask = 64'hCC330000CC0000CC;
-defparam WideOr0.shared_arith = "off";
+defparam \led_out~6 .extended_lut = "off";
+defparam \led_out~6 .lut_mask = 64'hCC330000CC0000CC;
+defparam \led_out~6 .shared_arith = "off";
 // synopsys translate_on
 
 // Location: MLABCELL_X21_Y20_N3

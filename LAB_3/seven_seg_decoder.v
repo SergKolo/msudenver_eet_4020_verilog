@@ -24,50 +24,43 @@ module seven_seg_decoder(led_out,bin_in);
      // note: tmp variables use implicit nets
 
      //led_out[6] = A’B’C’ + A’BCD + ABC’D’
-     and(tmp1,bin_in_inv[3],bin_in_inv[2],bin_in_inv[1]);
-     and(tmp2,bin_in_inv[3],bin_in[2],bin_in[1],bin_in[0]);
-     and(tmp3,bin_in[3],bin_in[2],bin_in_inv[1],bin_in_inv[0]);
-     or(led_out[6] ,tmp1,tmp2,tmp3);
+     assign led_out[6] = (bin_in_inv[3] & bin_in_inv[2] & bin_in_inv[1]) |
+                         (bin_in_inv[3] & bin_in[2] & bin_in[1] & bin_in[0]) |
+                         (bin_in[3] & bin_in[2] & bin_in_inv[1] & bin_in_inv[0]);
 
      //led_out[5] = A’B’D + A’B’C + A’CD +ABC’D
-     and(tmp4,bin_in_inv[3],bin_in_inv[2],bin_in[0]);
-     and(tmp5,bin_in_inv[3],bin_in_inv[2],bin_in[1]);
-     and(tmp6,bin_in_inv[3],bin_in[1],bin_in[0]);
-     and(tmp7,bin_in[3],bin_in[2],bin_in_inv[1],bin_in[0]);
-     or(led_out[5] ,tmp4,tmp5,tmp6,tmp7);
+     assign led_out[5] = (bin_in_inv[3] & bin_in_inv[2] & bin_in[0]) | 
+                         (bin_in_inv[3] & bin_in_inv[2] & bin_in[1]) | 
+                         (bin_in_inv[3] & bin_in[1] & bin_in[0]) | 
+                         (bin_in[3] & bin_in[2] & bin_in_inv[1] & bin_in[0]);
 
      //led_out[4] = A’D + B’C’D + A’BC’
-     and(tmp8,bin_in_inv[3],bin_in[0]);
-     and(tmp9,bin_in_inv[2],bin_in_inv[1],bin_in[0]);
-     and(tmp10,bin_in_inv[3],bin_in[2],bin_in_inv[1]);
-     or(led_out[4],tmp8,tmp9,tmp10); 
+     assign led_out[4] = (bin_in_inv[3] & bin_in[0]) |
+                         (bin_in_inv[2] & bin_in_inv[1] & bin_in[0]) |
+                         (bin_in_inv[3] & bin_in[2] & bin_in_inv[1]);
 
      //led_out[3] = B’C’D + BCD + A’BC’D’ + AB’CD’
-     and(tmp11,bin_in_inv[2],bin_in_inv[1],bin_in[0]);
-     and(tmp12,bin_in[2],bin_in[1],bin_in[0]);
-     and(tmp13,bin_in_inv[3],bin_in[2],bin_in_inv[1],bin_in_inv[0]);
-     and(tmp14,bin_in[3],bin_in_inv[2],bin_in[1],bin_in_inv[0]);
-     or(led_out[3],tmp11,tmp12,tmp13,tmp14);
+     assign led_out[3] = (bin_in_inv[2] & bin_in_inv[1] & bin_in[0]) | 
+                         (bin_in[2] & bin_in[1] & bin_in[0]) | 
+                         (bin_in_inv[3] & bin_in[2] & bin_in_inv[1] & bin_in_inv[0]) | 
+                         (bin_in[3] & bin_in_inv[2] & bin_in[1] & bin_in_inv[0]);
 
      //led_out[2] = ABD’ + ABC + A’B’CD’
-     and(tmp15,bin_in[3],bin_in[2],bin_in_inv[0]);
-     and(tmp16,bin_in[3],bin_in[2],bin_in[1]);
-     and(tmp17,bin_in_inv[3],bin_in_inv[2],bin_in[1],bin_in_inv[0]);
-     or(led_out[2],tmp15,tmp16,tmp17);
+     assign led_out[2] = (bin_in[3] & bin_in[2] & bin_in_inv[0]) | 
+                         (bin_in[3] & bin_in[2] & bin_in[1]) | 
+                         (bin_in_inv[3] & bin_in_inv[2] & bin_in[1] & bin_in_inv[0]);
 
      //led_out[1] = BCD’ + ACD + ABD’ + A’BC’D
-     and(tmp18,bin_in[2],bin_in[1],bin_in_inv[0]);
-     and(tmp20,bin_in[3],bin_in[1],bin_in[0]);
-     and(tmp21,bin_in[3],bin_in[2],bin_in_inv[0]);
-     and(tmp22,bin_in_inv[3],bin_in[2],bin_in_inv[1],bin_in[0]);
-     or(led_out[1],tmp18,tmp20,tmp21,tmp22);
+     assign led_out[1] = (bin_in[2] & bin_in[1] & bin_in_inv[0]) | 
+                         (bin_in[3] & bin_in[1] & bin_in[0]) | 
+                         (bin_in[3] & bin_in[2] & bin_in_inv[0]) | 
+                         (bin_in_inv[3] & bin_in[2] & bin_in_inv[1] & bin_in[0]);
 
      //led_out[0] = A’B’C’D + A’BC’D’ + AB’CD + ABC’D
-     and(tmp23,bin_in_inv[3],bin_in_inv[2],bin_in_inv[1],bin_in[0]);
-     and(tmp24,bin_in_inv[3],bin_in[2],bin_in_inv[1],bin_in_inv[0]);
-     and(tmp25,bin_in[3],bin_in_inv[2],bin_in[1],bin_in[0]);
-     and(tmp26,bin_in[3],bin_in[2],bin_in_inv[1],bin_in[0]);
-     or(led_out[0],tmp23,tmp24,tmp25,tmp26);
+     assign led_out[0] = (bin_in_inv[3] & bin_in_inv[2] & bin_in_inv[1] & bin_in[0]) | 
+                         (bin_in_inv[3] & bin_in[2] & bin_in_inv[1] & bin_in_inv[0]) | 
+                         (bin_in[3] & bin_in_inv[2] & bin_in[1] & bin_in[0]) | 
+                         (bin_in[3] & bin_in[2] & bin_in_inv[1] & bin_in[0]);
 endmodule
  
 module stimulus_seven_seg;
