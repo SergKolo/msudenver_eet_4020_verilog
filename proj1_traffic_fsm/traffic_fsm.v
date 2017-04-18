@@ -1,4 +1,4 @@
-module traffic_fsm(main_lights,cross_lights,sensors,clk);
+module traffic_fsm(hex_pins,main_lights,cross_lights,sensors,clk);
 
 /*
  *
@@ -10,16 +10,28 @@ module traffic_fsm(main_lights,cross_lights,sensors,clk);
  // red,yellow,green,yellow_arrow,green_arrow
  output reg [4:0] main_lights;
  output reg [4:0] cross_lights;
+ output [6:0] hex_pins;
  
  reg [3:0] state;
  parameter main_go=0,cross_go=1,
            main_wait=2,cross_wait=3,
 			  main_arrow_go=4,cross_arrow_go=5,
            main_arrow_wait=6,cross_arrow_wait=7,
-			  allstop=8;
-			  
+			  all_stop=8;
+
+reg [3:0] sleep;
+wire [3:0] current_count;
+//module timer(counter,duration,clk,reset);
+timer tm0(current_count,sleep,clk);
+
+seven_seg_decoder ssd(hex_pins,current_count);
+//module seven_seg_decoder(led_out,bin_in);
+initial
+    begin 
+	     state <= main_go;
+	 end
 // output logic
-always @(state)
+always @(posedge clk)
     begin
 	     case(state)
 		      main_go:
@@ -78,22 +90,68 @@ always @(state)
   * walk cross - sensors[4]
   */
  // next state logic
-always @(input)
+always @(posedge clk)
     begin
-	     case (state):
+	     //wait(! current_count);
+	     case (state)
 		      main_go:
-				    if (sensors[0] | sensors[1] | sensors[2] | sensors[3] )
-				        state = main_wait;
-				cross_go:
-				    //
+				    begin
+					     if (sensors[0])
+						  begin
+						      state <= main_wait;
+								sleep <= 4'b0111;
+						  end
+					 end
+				    
 				main_wait:
-				    #3 state = all_stop;
-				cross_wait:
+				    begin
+					     if (sensors[1])
+						  begin
+					          state <= all_stop;
+								 sleep <= 4'b1010;
+						  end
+					 end
+				    
 				all_stop:
-				    if (sensors[0])
+				    begin
+					     if (~sensors[0] & ~sensors[1])
+						      state <= main_go;
+					 end
+
 		  endcase
+	end
 endmodule
 
+//--------------------
+module timer(counter,duration,clk);
+
+input clk;
+input [3:0] duration;
+output reg [3:0] counter;
+reg [25:0] ticker; 
+
+initial 
+    begin
+	     ticker = 49999999;
+		  counter = duration;
+	 end
+	 
+	 
+always @(posedge clk)
+
+		 begin
+           if(counter == 0)
+			      counter <= duration;
+			      ticker <= ticker - 1;
+			  if (ticker == 0)
+			  begin
+					ticker <= 49999999;
+					counter <= counter-1;
+			  end
+		 end
+endmodule
+
+//-------
 module seven_seg_decoder(led_out,bin_in);
 
     output [6:0] led_out;

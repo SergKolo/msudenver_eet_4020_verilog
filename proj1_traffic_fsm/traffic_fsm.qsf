@@ -54,4 +54,27 @@ set_global_assignment -name VERILOG_FILE traffic_fsm.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_AF14 -to clk
+set_location_assignment PIN_W17 -to cross_lights[0]
+set_location_assignment PIN_V18 -to cross_lights[1]
+set_location_assignment PIN_V17 -to cross_lights[2]
+set_location_assignment PIN_W16 -to cross_lights[3]
+set_location_assignment PIN_V16 -to cross_lights[4]
+set_location_assignment PIN_Y21 -to main_lights[0]
+set_location_assignment PIN_W21 -to main_lights[1]
+set_location_assignment PIN_W20 -to main_lights[2]
+set_location_assignment PIN_Y19 -to main_lights[3]
+set_location_assignment PIN_W19 -to main_lights[4]
+set_location_assignment PIN_AB12 -to sensors[0]
+set_location_assignment PIN_AC12 -to sensors[1]
+set_location_assignment PIN_AF9 -to sensors[2]
+set_location_assignment PIN_AF10 -to sensors[3]
+set_location_assignment PIN_AD12 -to sensors[4]
+set_location_assignment PIN_AE26 -to hex_pins[0]
+set_location_assignment PIN_AE27 -to hex_pins[1]
+set_location_assignment PIN_AE28 -to hex_pins[2]
+set_location_assignment PIN_AG27 -to hex_pins[3]
+set_location_assignment PIN_AF28 -to hex_pins[4]
+set_location_assignment PIN_AG28 -to hex_pins[5]
+set_location_assignment PIN_AH28 -to hex_pins[6]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
