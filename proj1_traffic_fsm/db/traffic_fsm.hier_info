@@ -1,0 +1,18 @@
+|traffic_fsm
+main_lights[0] <= <GND>
+main_lights[1] <= <GND>
+main_lights[2] <= <GND>
+main_lights[3] <= <GND>
+main_lights[4] <= <VCC>
+cross_lights[0] <= <GND>
+cross_lights[1] <= <GND>
+cross_lights[2] <= <GND>
+cross_lights[3] <= <GND>
+cross_lights[4] <= <GND>
+sensors[0] => ~NO_FANOUT~
+sensors[1] => ~NO_FANOUT~
+sensors[2] => ~NO_FANOUT~
+sensors[3] => ~NO_FANOUT~
+sensors[4] => ~NO_FANOUT~
+
+
