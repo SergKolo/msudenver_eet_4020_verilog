@@ -1,9 +1,5 @@
 module traffic_fsm(hex_pins,main_lights,cross_lights,sensors,clk);
 
-/*
- *
- */
-
  input clk;
  input [4:0] sensors;
  
@@ -13,23 +9,28 @@ module traffic_fsm(hex_pins,main_lights,cross_lights,sensors,clk);
  output [6:0] hex_pins;
  
  reg [3:0] state;
+ // constants for idiomatic state definitions
  parameter main_go=0,cross_go=1,
            main_wait=2,cross_wait=3,
 			  main_arrow_go=4,cross_arrow_go=5,
            main_arrow_wait=6,cross_arrow_wait=7,
 			  all_stop=8;
+reg timer_reset;
+reg [3:0] sleep = 4'b1010; // starting point of timer
+wire [3:0] current_count; // counter output
 
-reg [3:0] sleep;
-wire [3:0] current_count;
-//module timer(counter,duration,clk,reset);
-timer tm0(current_count,sleep,clk);
+timer tm0(current_count,sleep,clk,timer_reset);
 
 seven_seg_decoder ssd(hex_pins,current_count);
 //module seven_seg_decoder(led_out,bin_in);
+
+
 initial
     begin 
 	     state <= main_go;
+		  sleep = 10;
 	 end
+	 
 // output logic
 always @(posedge clk)
     begin
@@ -38,6 +39,9 @@ always @(posedge clk)
 				    begin
 				        main_lights <= 5'b00100;
 					     cross_lights <= 5'b10000;
+						  timer_reset = 1'b1;
+						  sleep = 5;
+						  timer_reset = 1'b0;
 				    end
 				cross_go:
                 begin
@@ -48,6 +52,7 @@ always @(posedge clk)
 				    begin
 					     main_lights <= 5'b01000;
 					     cross_lights <= 5'b10000;
+						  sleep <= 7;
 					 end
 				cross_wait:
 				    begin
@@ -78,6 +83,7 @@ always @(posedge clk)
 				   begin
 					    main_lights <= 5'b10000;
 						 cross_lights <= 5'b10000;
+						 sleep <= 4'b0011;
 					end
 		  endcase
 	 end
@@ -90,65 +96,105 @@ always @(posedge clk)
   * walk cross - sensors[4]
   */
  // next state logic
-always @(posedge clk)
-    begin
-	     //wait(! current_count);
-	     case (state)
-		      main_go:
-				    begin
-					     if (sensors[0])
-						  begin
-						      state <= main_wait;
-								sleep <= 4'b0111;
-						  end
-					 end
-				    
-				main_wait:
-				    begin
-					     if (sensors[1])
-						  begin
-					          state <= all_stop;
-								 sleep <= 4'b1010;
-						  end
-					 end
-				    
-				all_stop:
-				    begin
-					     if (~sensors[0] & ~sensors[1])
-						      state <= main_go;
-					 end
+//always @(posedge clk)
+//    begin
+//	     //wait(! current_count);
+//	     case (state)
+//		      main_go:
+//				    
+//					     if (sensors[0])
+//						  begin
+//						  sleep <= 4'b0111;
+//						  if ( current_count == 0)
+//						      state <= main_wait;
+//						  end
+//					 
+//				main_wait:
+//				    begin
+//					     if (sensors[1])
+//						  begin
+//					          state <= all_stop;
+//								 sleep <= 4'b1010;
+//						  end
+//					 end
+//				    
+//				all_stop:
+//				    begin
+//					     if (~sensors[0] & ~sensors[1])
+//						      state <= main_go;
+//					 end
+//
+//		  endcase
+//	end
 
-		  endcase
-	end
+	
+always @(posedge clk)
+    
+	     if(current_count == 4'b0000)
+		      begin
+				if(sensors[0] && state == main_go)
+				    state <= main_wait;
+			   else if(sensors[1] && state == main_wait)
+				    state <= all_stop;
+				else if(state == all_stop)
+				    state <= main_go;
+				end
 endmodule
 
 //--------------------
-module timer(counter,duration,clk);
+module timer(counter,duration,clk, reset);
 
-input clk;
+input clk,reset;
 input [3:0] duration;
 output reg [3:0] counter;
 reg [25:0] ticker; 
 
-initial 
+parameter tick_count = 49999999;
+initial
     begin
-	     ticker = 49999999;
-		  counter = duration;
+	     counter <= duration;
 	 end
 	 
-	 
 always @(posedge clk)
+    //counter <= duration;
+	 begin
+	      if ( counter == 0)
+			    begin
+				     ticker <= tick_count;
+					  counter <= duration;
+				 end
+	      ticker <= ticker - 1;
+			if ( ticker == 0 )
+			    counter <= counter - 1;
+	 end
+	 
 
-		 begin
-           if(counter == 0)
-			      counter <= duration;
-			      ticker <= ticker - 1;
-			  if (ticker == 0)
-			  begin
-					ticker <= 49999999;
-					counter <= counter-1;
-			  end
-		 end
+//parameter tick_count = 49999999;
+//
+////always @(posedge duration)
+//initial
+//    begin
+//	     ticker <= tick_count;
+//		  counter <= duration;
+//	 end
+//	 
+//	 
+//always @(posedge clk or posedge reset)
+//       if(reset)
+//		 begin
+//		     ticker <= tick_count;
+//			  counter <= duration;
+//		 end
+//		 else
+//		 begin
+//   	     ticker <= ticker - 1;
+//			  if (ticker == 0)
+//			  begin
+//					ticker <= tick_count;
+//					//if (counter > 0)
+//					counter <= counter-1;
+//			  end
+//		 end
 endmodule
 
 //-------
@@ -207,4 +253,34 @@ module seven_seg_decoder(led_out,bin_in);
                          (bin_in_inv[3] & bin_in[2] & bin_in_inv[1] & bin_in_inv[0]) | 
                          (bin_in[3] & bin_in_inv[2] & bin_in[1] & bin_in[0]) | 
                          (bin_in[3] & bin_in[2] & bin_in_inv[1] & bin_in[0]);
+endmodule
+
+module stimulus_seven_seg;
+    reg [3:0] bin_in = 4'b1011;
+    wire [3:0] led_out;
+    reg clk,rst;
+	 
+    //module timer(counter,duration,clk, reset);
+    timer tm1(led_out,bin_in,clk,rst);
+    // instantiate the seven segment decoder
+    //seven_seg_decoder s1(led_out,bin_in);
+    // We'll make a counter that counts from 00 to 1111
+    // In order to do that, we'll need a clock
+    initial 
+        clk = 1'b0;
+                        
+    always
+        #5 clk = ~clk; //toggle clock every 5 time units
+            
+    //always @(posedge clk)
+        //bin_in = bin_in + 1;
+            
+    initial
+    begin
+        $monitor("At time",$time,"binary input=%b and hex output=%b\n",bin_in,led_out);
+		  //#20 rst = 1;
+		  //#1 rst=0;
+        #160 $stop;
+    end
+          
 endmodule
