@@ -16,7 +16,7 @@ module traffic_fsm(hex_pins,main_lights,cross_lights,sensors,clk);
            main_arrow_wait=6,cross_arrow_wait=7,
 			  all_stop=8;
 reg timer_reset;
-reg [3:0] sleep = 4'b1010; // starting point of timer
+reg [3:0] sleep;// = 4'b1010; // starting point of timer
 wire [3:0] current_count; // counter output
 
 timer tm0(current_count,sleep,clk,timer_reset);
@@ -28,7 +28,7 @@ seven_seg_decoder ssd(hex_pins,current_count);
 initial
     begin 
 	     state <= main_go;
-		  sleep = 10;
+		  sleep <= 6;
 	 end
 	 
 // output logic
@@ -37,27 +37,34 @@ always @(posedge clk)
 	     case(state)
 		      main_go:
 				    begin
+					     //sleep = 6;
 				        main_lights <= 5'b00100;
 					     cross_lights <= 5'b10000;
-						  timer_reset = 1'b1;
-						  sleep = 5;
-						  timer_reset = 1'b0;
+						  
+						  //timer_reset = 1'b1;
+						  
+						  //timer_reset = 1'b0;
 				    end
 				cross_go:
                 begin
+					     //sleep = 6;
                     main_lights <= 5'b10000;
 					     cross_lights <= 5'b00100;
+						  
                 end
 				main_wait:
 				    begin
+					     //sleep = 4;
 					     main_lights <= 5'b01000;
 					     cross_lights <= 5'b10000;
-						  sleep <= 7;
+						  
 					 end
 				cross_wait:
 				    begin
+					     //sleep = 4;
 					     main_lights <= 5'b10000;
 					     cross_lights <= 5'b01000;
+						  
                 end
 				main_arrow_go:
 				    begin
@@ -81,9 +88,10 @@ always @(posedge clk)
 					 end
 			   all_stop:
 				   begin
+					    //sleep = 3;
 					    main_lights <= 5'b10000;
 						 cross_lights <= 5'b10000;
-						 sleep <= 4'b0011;
+						 
 					end
 		  endcase
 	 end
@@ -95,50 +103,70 @@ always @(posedge clk)
   * walk main - sensors[3]
   * walk cross - sensors[4]
   */
- // next state logic
-//always @(posedge clk)
-//    begin
-//	     //wait(! current_count);
-//	     case (state)
-//		      main_go:
-//				    
-//					     if (sensors[0])
-//						  begin
-//						  sleep <= 4'b0111;
-//						  if ( current_count == 0)
-//						      state <= main_wait;
-//						  end
-//					 
-//				main_wait:
-//				    begin
-//					     if (sensors[1])
-//						  begin
-//					          state <= all_stop;
-//								 sleep <= 4'b1010;
-//						  end
-//					 end
-//				    
-//				all_stop:
-//				    begin
-//					     if (~sensors[0] & ~sensors[1])
-//						      state <= main_go;
-//					 end
-//
-//		  endcase
-//	end
 
 	
 always @(posedge clk)
-    
-	     if(current_count == 4'b0000)
+    begin
+	     if(current_count == 4'b0001)
 		      begin
-				if(sensors[0] && state == main_go)
-				    state <= main_wait;
-			   else if(sensors[1] && state == main_wait)
-				    state <= all_stop;
-				else if(state == all_stop)
-				    state <= main_go;
+					if(state == main_go && (sensors[0]|sensors[1]|sensors[2]|sensors[4]))
+					begin
+					    //state = main_wait;
+						 sleep = 4;
+					end
+					else if(state == main_wait || state == cross_wait)
+					begin
+						 //state = all_stop;
+						 sleep = 3;
+					end
+					else if(state == cross_go)
+					begin
+						 //state = cross_wait;
+						 sleep = 3;
+					end
+					else if(state == all_stop)
+						 if (sensors[2])
+						 begin
+							  //state = cross_go;
+							  sleep = 6;
+						 end
+						 else
+						 begin
+							  //state = main_go;
+							  sleep = 6;
+						 end
 				end
+				
+	    if(current_count == 4'b0000)
+					begin
+						if(state == main_go && (sensors[0]|sensors[1]|sensors[2]|sensors[4]))
+						begin
+							 state = main_wait;
+							 //sleep = 4;
+						end
+						else if(state == main_wait || state == cross_wait)
+						begin
+							 state = all_stop;
+							 //sleep = 3;
+						end
+						else if(state == cross_go)
+						begin
+							 state = cross_wait;
+							 //sleep = 3;
+						end
+						else if(state == all_stop)
+							 if (sensors[2])
+							 begin
+								  state = cross_go;
+								  //sleep = 6;
+							 end
+							 else
+							 begin
+								  state = main_go;
+								  //sleep = 6;
+							 end
+					end
+    end
 endmodule
 
 //--------------------
@@ -152,6 +180,7 @@ reg [25:0] ticker;
 parameter tick_count = 49999999;
 initial
     begin
+	     ticker <= tick_count;
 	     counter <= duration;
 	 end
 	 

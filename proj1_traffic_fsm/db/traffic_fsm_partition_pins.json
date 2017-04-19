@@ -44,6 +44,18 @@
 					"strict" : false
 				},
 				{
+					"name" : "cross_lights[2]",
+					"strict" : false
+				},
+				{
+					"name" : "cross_lights[3]",
+					"strict" : false
+				},
+				{
+					"name" : "cross_lights[4]",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},
@@ -53,6 +65,14 @@
 				},
 				{
 					"name" : "sensors[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sensors[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sensors[4]",
 					"strict" : false
 				}
 			]
