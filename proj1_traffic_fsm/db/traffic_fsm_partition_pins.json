@@ -32,6 +32,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "main_lights[0]",
+					"strict" : false
+				},
+				{
+					"name" : "main_lights[1]",
+					"strict" : false
+				},
+				{
 					"name" : "main_lights[2]",
 					"strict" : false
 				},
@@ -41,6 +49,14 @@
 				},
 				{
 					"name" : "main_lights[4]",
+					"strict" : false
+				},
+				{
+					"name" : "cross_lights[0]",
+					"strict" : false
+				},
+				{
+					"name" : "cross_lights[1]",
 					"strict" : false
 				},
 				{

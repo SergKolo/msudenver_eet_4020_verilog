@@ -1,5 +1,5 @@
 Analysis & Synthesis report for traffic_fsm
-Wed Apr 19 16:45:04 2017
+Thu Apr 20 14:02:45 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -15,15 +15,14 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |traffic_fsm|state
   9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: Top-level Entity: |traffic_fsm
- 15. Parameter Settings for User Entity Instance: timer:tm0
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |traffic_fsm
+ 14. Parameter Settings for User Entity Instance: timer:tm0
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -50,13 +49,13 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Apr 19 16:45:04 2017       ;
+; Analysis & Synthesis Status     ; Successful - Thu Apr 20 14:02:45 2017       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; traffic_fsm                                 ;
 ; Top-level Entity Name           ; traffic_fsm                                 ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 44                                          ;
+; Total registers                 ; 55                                          ;
 ; Total pins                      ; 23                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -188,25 +187,25 @@ agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 42        ;
+; Estimate of Logic utilization (ALMs needed) ; 58        ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 74        ;
-;     -- 7 input functions                    ; 0         ;
-;     -- 6 input functions                    ; 8         ;
-;     -- 5 input functions                    ; 4         ;
-;     -- 4 input functions                    ; 12        ;
+; Combinational ALUT usage for logic          ; 94        ;
+;     -- 7 input functions                    ; 2         ;
+;     -- 6 input functions                    ; 19        ;
+;     -- 5 input functions                    ; 8         ;
+;     -- 4 input functions                    ; 15        ;
 ;     -- <=3 input functions                  ; 50        ;
 ;                                             ;           ;
-; Dedicated logic registers                   ; 44        ;
+; Dedicated logic registers                   ; 55        ;
 ;                                             ;           ;
 ; I/O pins                                    ; 23        ;
 ;                                             ;           ;
 ; Total DSP Blocks                            ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 44        ;
-; Total fan-out                               ; 325       ;
-; Average fan-out                             ; 1.98      ;
+; Maximum fan-out                             ; 55        ;
+; Total fan-out                               ; 466       ;
+; Average fan-out                             ; 2.39      ;
 +---------------------------------------------+-----------+
 
 
@@ -215,7 +214,7 @@ agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                ; Entity Name       ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------+-------------------+--------------+
-; |traffic_fsm               ; 74 (14)             ; 44 (14)                   ; 0                 ; 0          ; 23   ; 0            ; |traffic_fsm                       ; traffic_fsm       ; work         ;
+; |traffic_fsm               ; 94 (34)             ; 55 (25)                   ; 0                 ; 0          ; 23   ; 0            ; |traffic_fsm                       ; traffic_fsm       ; work         ;
 ;    |seven_seg_decoder:ssd| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |traffic_fsm|seven_seg_decoder:ssd ; seven_seg_decoder ; work         ;
 ;    |timer:tm0|             ; 53 (53)             ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |traffic_fsm|timer:tm0             ; timer             ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------+-------------------+--------------+
@@ -240,35 +239,17 @@ Encoding Type:  One-Hot
 +------------------------+------------------------+-----------------------+----------------------+---------------------+------------------+-----------------+----------------+---------------+----------------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; sleep[3]                               ; Stuck at GND due to stuck port data_in ;
-; state~2                                ; Lost fanout                            ;
-; state~3                                ; Lost fanout                            ;
-; state~4                                ; Lost fanout                            ;
-; state.cross_arrow_wait                 ; Merged with state.cross_arrow_go       ;
-; state.main_arrow_go                    ; Merged with state.cross_arrow_go       ;
-; state.main_arrow_wait                  ; Merged with state.cross_arrow_go       ;
-; state.cross_arrow_go                   ; Stuck at GND due to stuck port data_in ;
-; main_lights[0]~reg0                    ; Stuck at GND due to stuck port data_in ;
-; main_lights[1]~reg0                    ; Stuck at GND due to stuck port data_in ;
-; cross_lights[0]~reg0                   ; Stuck at GND due to stuck port data_in ;
-; cross_lights[1]~reg0                   ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 12 ;                                        ;
-+----------------------------------------+----------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                             ;
-+----------------------+---------------------------+--------------------------------------------------------------------------------------+
-; Register name        ; Reason for Removal        ; Registers Removed due to This Register                                               ;
-+----------------------+---------------------------+--------------------------------------------------------------------------------------+
-; state.cross_arrow_go ; Stuck at GND              ; main_lights[0]~reg0, main_lights[1]~reg0, cross_lights[0]~reg0, cross_lights[1]~reg0 ;
-;                      ; due to stuck port data_in ;                                                                                      ;
-+----------------------+---------------------------+--------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; sleep[3]                              ; Stuck at GND due to stuck port data_in ;
+; state~3                               ; Lost fanout                            ;
+; state~4                               ; Lost fanout                            ;
+; state~5                               ; Lost fanout                            ;
+; Total Number of Removed Registers = 4 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -276,12 +257,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 44    ;
+; Total registers                              ; 55    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 2     ;
+; Number of registers using Clock Enable       ; 5     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -309,8 +290,8 @@ Encoding Type:  One-Hot
 ; timer:tm0|ticker[17]                    ; 2       ;
 ; timer:tm0|ticker[15]                    ; 2       ;
 ; timer:tm0|ticker[14]                    ; 2       ;
-; sleep[2]                                ; 1       ;
-; sleep[1]                                ; 1       ;
+; sleep[2]                                ; 2       ;
+; sleep[1]                                ; 2       ;
 ; Total number of inverted registers = 20 ;         ;
 +-----------------------------------------+---------+
 
@@ -320,10 +301,8 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |traffic_fsm|timer:tm0|counter[2] ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |traffic_fsm|sleep[2]             ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; No         ; |traffic_fsm|state                ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |traffic_fsm|state                ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |traffic_fsm|timer:tm0|counter[2] ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |traffic_fsm|state                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
 
 
@@ -360,24 +339,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 44                          ;
-;     ENA               ; 2                           ;
-;     plain             ; 42                          ;
-; arriav_lcell_comb     ; 75                          ;
+; arriav_ff             ; 55                          ;
+;     ENA               ; 5                           ;
+;     plain             ; 50                          ;
+; arriav_lcell_comb     ; 94                          ;
 ;     arith             ; 26                          ;
 ;         1 data inputs ; 26                          ;
-;     normal            ; 49                          ;
-;         0 data inputs ; 1                           ;
+;     extend            ; 2                           ;
+;         7 data inputs ; 2                           ;
+;     normal            ; 66                          ;
 ;         1 data inputs ; 19                          ;
 ;         2 data inputs ; 2                           ;
 ;         3 data inputs ; 3                           ;
-;         4 data inputs ; 12                          ;
-;         5 data inputs ; 4                           ;
-;         6 data inputs ; 8                           ;
+;         4 data inputs ; 15                          ;
+;         5 data inputs ; 8                           ;
+;         6 data inputs ; 19                          ;
 ; boundary_port         ; 23                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.50                        ;
-; Average LUT depth     ; 2.85                        ;
+; Average LUT depth     ; 2.86                        ;
 +-----------------------+-----------------------------+
 
 
@@ -396,42 +376,37 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Wed Apr 19 16:44:18 2017
+    Info: Processing started: Thu Apr 20 14:01:22 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off traffic_fsm -c traffic_fsm
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 4 design units, including 4 entities, in source file traffic_fsm.v
     Info (12023): Found entity 1: traffic_fsm File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 1
-    Info (12023): Found entity 2: timer File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 173
-    Info (12023): Found entity 3: seven_seg_decoder File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 230
-    Info (12023): Found entity 4: stimulus_seven_seg File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 287
+    Info (12023): Found entity 2: timer File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 248
+    Info (12023): Found entity 3: seven_seg_decoder File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 305
+    Info (12023): Found entity 4: stimulus_seven_seg File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 362
 Info (12127): Elaborating entity "traffic_fsm" for the top level hierarchy
-Info (12128): Elaborating entity "timer" for hierarchy "timer:tm0" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 22
-Warning (10230): Verilog HDL assignment warning at traffic_fsm.v(183): truncated value with size 32 to match size of target (26) File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 183
-Warning (10855): Verilog HDL warning at traffic_fsm.v(182): initial value for variable counter should be constant File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 182
-Warning (10230): Verilog HDL assignment warning at traffic_fsm.v(192): truncated value with size 32 to match size of target (26) File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 192
-Warning (10230): Verilog HDL assignment warning at traffic_fsm.v(195): truncated value with size 32 to match size of target (26) File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 195
-Warning (10230): Verilog HDL assignment warning at traffic_fsm.v(197): truncated value with size 32 to match size of target (4) File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 197
-Info (12128): Elaborating entity "seven_seg_decoder" for hierarchy "seven_seg_decoder:ssd" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 24
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "main_lights[0]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 35
-    Warning (13410): Pin "main_lights[1]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 35
-    Warning (13410): Pin "cross_lights[0]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 35
-    Warning (13410): Pin "cross_lights[1]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 35
+Info (12128): Elaborating entity "timer" for hierarchy "timer:tm0" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 32
+Warning (10230): Verilog HDL assignment warning at traffic_fsm.v(258): truncated value with size 32 to match size of target (26) File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 258
+Warning (10855): Verilog HDL warning at traffic_fsm.v(257): initial value for variable counter should be constant File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 257
+Warning (10230): Verilog HDL assignment warning at traffic_fsm.v(267): truncated value with size 32 to match size of target (26) File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 267
+Warning (10230): Verilog HDL assignment warning at traffic_fsm.v(270): truncated value with size 32 to match size of target (26) File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 270
+Warning (10230): Verilog HDL assignment warning at traffic_fsm.v(272): truncated value with size 32 to match size of target (4) File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 272
+Info (12128): Elaborating entity "seven_seg_decoder" for hierarchy "seven_seg_decoder:ssd" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 35
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "sensors[3]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 4
-Info (21057): Implemented 102 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "sensors[3]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 11
+Info (21057): Implemented 125 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 17 output pins
-    Info (21061): Implemented 79 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 1013 megabytes
-    Info: Processing ended: Wed Apr 19 16:45:04 2017
-    Info: Elapsed time: 00:00:46
-    Info: Total CPU time (on all processors): 00:01:03
+    Info (21061): Implemented 102 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
+    Info: Peak virtual memory: 1019 megabytes
+    Info: Processing ended: Thu Apr 20 14:02:45 2017
+    Info: Elapsed time: 00:01:23
+    Info: Total CPU time (on all processors): 00:01:05
 
 

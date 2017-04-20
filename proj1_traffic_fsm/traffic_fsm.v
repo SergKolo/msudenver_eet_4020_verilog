@@ -1,30 +1,40 @@
 module traffic_fsm(hex_pins,main_lights,cross_lights,sensors,clk);
 
- input clk;
- input [4:0] sensors;
- 
- // red,yellow,green,yellow_arrow,green_arrow
- output reg [4:0] main_lights;
- output reg [4:0] cross_lights;
- output [6:0] hex_pins;
- 
- reg [3:0] state;
- // constants for idiomatic state definitions
- parameter main_go=0,cross_go=1,
-           main_wait=2,cross_wait=3,
-			  main_arrow_go=4,cross_arrow_go=5,
-           main_arrow_wait=6,cross_arrow_wait=7,
-			  all_stop=8;
-reg timer_reset;
+input clk; // Cyclone's 50MHz clock
+/*
+* left main - sensors[0]
+* left cross - sensors[1]
+* traffic cross - sensors[2]
+* walk main - sensors[3]
+* walk cross - sensors[4]
+*/
+input [4:0] sensors;
+
+// red,yellow,green,yellow_arrow,green_arrow
+output reg [4:0] main_lights;
+output reg [4:0] cross_lights;
+output [6:0] hex_pins;
+
+reg [3:0] state;
+// constants for idiomatic state definitions
+parameter main_go=0,cross_go=1,
+		  main_wait=2,cross_wait=3,
+		  main_arrow_go=4,cross_arrow_go=5,
+		  main_arrow_wait=6,cross_arrow_wait=7,
+		  all_stop=8;
+
 reg [3:0] sleep;// = 4'b1010; // starting point of timer
 wire [3:0] current_count; // counter output
 
-timer tm0(current_count,sleep,clk,timer_reset);
+reg cross_tracker,cross_arrow_tracker,main_arrow_tracker;
 
-seven_seg_decoder ssd(hex_pins,current_count);
+//module timer(counter,duration,clk);
+timer tm0(current_count,sleep,clk);
+
 //module seven_seg_decoder(led_out,bin_in);
+seven_seg_decoder ssd(hex_pins,current_count);
 
-
+// ensure we start out with main street traffic
 initial
     begin 
 	     state <= main_go;
@@ -37,44 +47,39 @@ always @(posedge clk)
 	     case(state)
 		      main_go:
 				    begin
-					     //sleep = 6;
 				        main_lights <= 5'b00100;
 					     cross_lights <= 5'b10000;
-						  
-						  //timer_reset = 1'b1;
-						  
-						  //timer_reset = 1'b0;
+						  //cross_tracker <= 1'b0;
+						  //cross_arrow_tracker <= 1'b0;
+						  //main_arrow_tracker <= 1'b0;
 				    end
 				cross_go:
                 begin
-					     //sleep = 6;
                     main_lights <= 5'b10000;
 					     cross_lights <= 5'b00100;
-						  
+						  //cross_tracker <= 1'b1;
                 end
 				main_wait:
 				    begin
-					     //sleep = 4;
 					     main_lights <= 5'b01000;
 					     cross_lights <= 5'b10000;
-						  
 					 end
 				cross_wait:
 				    begin
-					     //sleep = 4;
 					     main_lights <= 5'b10000;
 					     cross_lights <= 5'b01000;
-						  
                 end
 				main_arrow_go:
 				    begin
 					     main_lights <= 5'b00001;
 					     cross_lights <= 5'b10000;
+						  //main_arrow_tracker <= 1'b1;
 					 end
 				cross_arrow_go:
 				    begin
 					     main_lights <= 5'b10000;
 					     cross_lights <= 5'b00001;
+						  //cross_arrow_tracker <= 1'b0;
                 end
 			   main_arrow_wait:
 				    begin
@@ -88,91 +93,161 @@ always @(posedge clk)
 					 end
 			   all_stop:
 				   begin
-					    //sleep = 3;
 					    main_lights <= 5'b10000;
 						 cross_lights <= 5'b10000;
-						 
+
 					end
 		  endcase
 	 end
- 
- /*
-  * left main - sensors[0]
-  * left cross - sensors[1]
-  * traffic cross - sensors[2]
-  * walk main - sensors[3]
-  * walk cross - sensors[4]
-  */
-
-	
+ 		
 always @(posedge clk)
     begin
-	     if(current_count == 4'b0001)
-		      begin
-					if(state == main_go && (sensors[0]|sensors[1]|sensors[2]|sensors[4]))
-					begin
-					    //state = main_wait;
-						 sleep = 4;
-					end
-					else if(state == main_wait || state == cross_wait)
-					begin
-						 //state = all_stop;
-						 sleep = 3;
-					end
-					else if(state == cross_go)
-					begin
-						 //state = cross_wait;
-						 sleep = 3;
-					end
-					else if(state == all_stop)
-						 if (sensors[2])
-						 begin
-							  //state = cross_go;
-							  sleep = 6;
-						 end
-						 else
-						 begin
-							  //state = main_go;
-							  sleep = 6;
-						 end
-				end
+	     // propagate the new value of sleep to timer
+	     //if(current_count == 4'b0001)
+		    //  begin
+		if(state == main_go && (sensors[0]|sensors[1]|sensors[2]|sensors[4]))
+		begin
+		    if( current_count == 4'b0001 )
+			     sleep = 4;
+			 if( current_count == 4'b0000 )
+			     state = main_wait;
+		end
+		
+		else if(state == main_wait || state == cross_wait || state == main_arrow_wait || state == cross_arrow_wait)
+		begin
+		    if( current_count == 4'b0001 )
+			     sleep = 3;
+			 if( current_count == 4'b000)
+			     state = all_stop;
+		end
+		
+		// handle cross left, check for main left
+		else if(state == cross_go)
+		begin
+		    if( current_count == 4'b0001 )
+			 begin
+			     cross_tracker = 1'b1;
+			     sleep = 3;
+				  if (sensors[1])
+				      cross_arrow_tracker = 1'b1;
+				  if (sensors[0])
+				      main_arrow_tracker = 1'b1;
+			 end
+			 if( current_count == 4'b0000 )
+			     state = cross_wait;
+		end
+		
+		//
+		else if(state == cross_arrow_go)
+		begin
+		    if( current_count == 4'b0001 )
+			 begin
+			     sleep = 3;
+//				  if (sensors[0])
+				  cross_arrow_tracker = 1'b0;
+			 end
+			 if( current_count == 4'b0000 )
+			     state = cross_arrow_wait;
+		end
+		//
+		
+	   else if(state == main_arrow_go)
+		begin
+		    if( current_count == 4'b0001 )
+			 begin
+			     sleep = 3;
+//				  if (sensors[0])
+				  main_arrow_tracker = 1'b0;
+			 end
+			 if( current_count == 4'b0000 )
+			     state = main_arrow_wait;
+		end
+		
+		else if(state == all_stop)
+		begin
+		    // we've come from main_go state, and there's cross traffic waiting
+			 // we shouldn't need sensors[2] here, because cross_tracker will tell us if we come from main_go
+		    if ( current_count == 4'b0001 && ~cross_tracker )
+			     sleep = 6;
+			 if ( current_count == 4'b0000 && ~cross_tracker )
+			     state = cross_go;
+				  
+			 // we've let cross traffic go, but somebody is waiting for an arrow
+			 if ( cross_tracker && (cross_arrow_tracker|main_arrow_tracker) )
+			 begin
+			     if ( current_count == 4'b0001 )
+			     		sleep = 4;
+				  if ( current_count == 4'b0000 )
+				      if ( cross_arrow_tracker )
+				          state = cross_arrow_go;
+						else
+						    state = main_arrow_go;
+		 
+			 end
+			 
+			 // we've let cross traffic go, but nobody is waiting for an arrow
+			 else if ( cross_tracker && (~cross_arrow_tracker && ~main_arrow_tracker) )
+			 begin
+			     if ( current_count == 4'b0001 )
+				      sleep = 6;
+		        if ( current_count == 4'b0000 )
+				  begin
+				      cross_tracker = 1'b0;
+				      state = main_go;
+				  end
+			 end
+			 
+		end
+		
+//			 if (sensors[2])
+//			 begin
+//				  sleep = 6;
+//			 end
+//			 else
+//			 begin
+//				  sleep = 6;
+//			 end
+				//end
 				
-	    if(current_count == 4'b0000)
-					begin
-						if(state == main_go && (sensors[0]|sensors[1]|sensors[2]|sensors[4]))
-						begin
-							 state = main_wait;
-							 //sleep = 4;
-						end
-						else if(state == main_wait || state == cross_wait)
-						begin
-							 state = all_stop;
-							 //sleep = 3;
-						end
-						else if(state == cross_go)
-						begin
-							 state = cross_wait;
-							 //sleep = 3;
-						end
-						else if(state == all_stop)
-							 if (sensors[2])
-							 begin
-								  state = cross_go;
-								  //sleep = 6;
-							 end
-							 else
-							 begin
-								  state = main_go;
-								  //sleep = 6;
-							 end
-					end
+//	    if(current_count == 4'b0000)
+//					begin
+//					
+//						if(state == main_go && (sensors[0]|sensors[1]|sensors[2]|sensors[4]))
+//						begin
+//							 state = main_wait;
+//						end
+//						
+//						else if(state == main_wait || state == cross_wait)
+//						begin
+//							 state = all_stop;
+//						end
+//						
+//						else if(state == cross_go)
+//						begin
+//							 state = cross_wait;
+//						end
+//						else if(state == all_stop)
+//						begin
+//	//reg cross_tracker,cross_arrow_tracker,main_arrow_tracker;
+//                      
+//							 if (sensors[2])
+//							 begin
+//								  state = cross_go;
+//							 end
+//							 else
+//							 begin
+//								  state = main_go;
+//							 end
+//							 
+//						end
+//					end
     end
 endmodule
 
 //--------------------
-module timer(counter,duration,clk, reset);
+module timer(counter,duration,clk);
 
-input clk,reset;
+input clk;
 input [3:0] duration;
 output reg [3:0] counter;
 reg [25:0] ticker; 
