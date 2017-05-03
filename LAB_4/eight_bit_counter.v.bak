@@ -1,0 +1,21 @@
+module eight_bit_counter(count_out,enable,clock,clear)
+    input enable,clock,clear;
+	 output [7:0] count_out;
+endmodule
+
+module frequency_divider(clock_out,clock_in)
+endmodule
+
+module t_ff(q_out,t_in,clock,clear)
+    input t_in,clock,clear;
+	 output q_out;
+
+	 always @(posedge clock or negedge clear)
+	     begin
+		      if(clear)
+				   q <= 1'b0;
+				else
+				    q <= t_in ^ q;
+		  end
+	 
+endmodule

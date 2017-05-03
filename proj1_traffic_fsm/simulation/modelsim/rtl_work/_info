@@ -1,0 +1,98 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/simulation/modelsim
+vseven_seg_decoder
+Z1 !s110 1492568481
+!i10b 1
+!s100 _7f[4n2;`IVYT25z7^]NA3
+IEEM:C^KGd[[`L6dYQzVP@3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1492568404
+Z4 8/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v
+Z5 F/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v
+L0 183
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1492568481.000000
+Z8 !s107 /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm|/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work +incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm
+Z12 tCvgOpt 0
+vstimulus_seven_seg
+R1
+!i10b 1
+!s100 OP`zBhFQFgm=>2fO[moT]2
+I_nM^cbGFmfP`Il2PbGn=30
+R2
+R0
+R3
+R4
+R5
+L0 240
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vtimer
+R1
+!i10b 1
+!s100 H@k5_<NmlL86fXCZD0C_83
+IYTU?GLVSL3bJ@GdSNafb92
+R2
+R0
+R3
+R4
+R5
+L0 147
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vtraffic_fsm
+R1
+!i10b 1
+!s100 O=m2_PlC1@JzC9d9Dg?H`1
+IflAZjfT6VbMS@iZ>YzGOY1
+R2
+R0
+R3
+R4
+R5
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12

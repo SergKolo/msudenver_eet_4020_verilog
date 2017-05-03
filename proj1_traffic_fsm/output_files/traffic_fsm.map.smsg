@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at traffic_fsm.v(35): always construct contains both blocking and non-blocking assignments File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj1_traffic_fsm/traffic_fsm.v Line: 35

@@ -1,0 +1,12 @@
+
+State Machine - |traffic_fsm|state
+Name state.cross_arrow_wait state.main_arrow_wait state.cross_arrow_go state.main_arrow_go state.cross_wait state.main_wait state.cross_go state.main_go state.all_stop 
+state.main_go 0 0 0 0 0 0 0 0 0 
+state.cross_go 0 0 0 0 0 0 1 1 0 
+state.main_wait 0 0 0 0 0 1 0 1 0 
+state.cross_wait 0 0 0 0 1 0 0 1 0 
+state.main_arrow_go 0 0 0 1 0 0 0 1 0 
+state.cross_arrow_go 0 0 1 0 0 0 0 1 0 
+state.main_arrow_wait 0 1 0 0 0 0 0 1 0 
+state.cross_arrow_wait 1 0 0 0 0 0 0 1 0 
+state.all_stop 0 0 0 0 0 0 0 1 1 

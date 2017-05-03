@@ -1,0 +1,573 @@
+# ERROR: No extended dataflow license exists
+# do eight_bit_counter_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying /home/xieerqi/intelFPGA_lite/16.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_4 {/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_4/eight_bit_counter.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:05:11 on May 02,2017
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_4" /home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_4/eight_bit_counter.v 
+# -- Compiling module eight_bit_counter
+# -- Compiling module frequency_divider
+# -- Compiling module t_ff
+# -- Compiling module stimulus_counter
+# 
+# Top level modules:
+# 	frequency_divider
+# 	stimulus_counter
+# End time: 19:05:11 on May 02,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# 
+# stdin: <EOF>
+vsim work.stimulus_counter
+# vsim work.stimulus_counter 
+# Start time: 19:05:23 on May 02,2017
+# Loading work.stimulus_counter
+# Loading work.eight_bit_counter
+# Loading work.t_ff
+add wave -position insertpoint  \
+sim:/stimulus_counter/clear \
+sim:/stimulus_counter/enable \
+sim:/stimulus_counter/clock \
+sim:/stimulus_counter/count_out
+run -all
+# At time                   0 clear = 0, enable = 0, and count = 00
+# 
+# At time                  10 clear = 1, enable = 0, and count = 00
+# 
+# At time                  30 clear = 1, enable = 1, and count = 00
+# 
+# At time                  35 clear = 1, enable = 1, and count = 01
+# 
+# At time                  45 clear = 1, enable = 1, and count = 02
+# 
+# At time                  55 clear = 1, enable = 1, and count = 03
+# 
+# At time                  65 clear = 1, enable = 1, and count = 04
+# 
+# At time                  75 clear = 1, enable = 1, and count = 05
+# 
+# At time                  85 clear = 1, enable = 1, and count = 06
+# 
+# At time                  95 clear = 1, enable = 1, and count = 07
+# 
+# At time                 105 clear = 1, enable = 1, and count = 08
+# 
+# At time                 115 clear = 1, enable = 1, and count = 09
+# 
+# At time                 125 clear = 1, enable = 1, and count = 0a
+# 
+# At time                 135 clear = 1, enable = 1, and count = 0b
+# 
+# At time                 145 clear = 1, enable = 1, and count = 0c
+# 
+# At time                 155 clear = 1, enable = 1, and count = 0d
+# 
+# At time                 165 clear = 1, enable = 1, and count = 0e
+# 
+# At time                 175 clear = 1, enable = 1, and count = 0f
+# 
+# At time                 185 clear = 1, enable = 1, and count = 10
+# 
+# At time                 195 clear = 1, enable = 1, and count = 11
+# 
+# At time                 205 clear = 1, enable = 1, and count = 12
+# 
+# At time                 215 clear = 1, enable = 1, and count = 13
+# 
+# At time                 225 clear = 1, enable = 1, and count = 14
+# 
+# At time                 235 clear = 1, enable = 1, and count = 15
+# 
+# At time                 245 clear = 1, enable = 1, and count = 16
+# 
+# At time                 255 clear = 1, enable = 1, and count = 17
+# 
+# At time                 265 clear = 1, enable = 1, and count = 18
+# 
+# At time                 275 clear = 1, enable = 1, and count = 19
+# 
+# At time                 285 clear = 1, enable = 1, and count = 1a
+# 
+# At time                 295 clear = 1, enable = 1, and count = 1b
+# 
+# At time                 305 clear = 1, enable = 1, and count = 1c
+# 
+# At time                 315 clear = 1, enable = 1, and count = 1d
+# 
+# At time                 325 clear = 1, enable = 1, and count = 1e
+# 
+# At time                 335 clear = 1, enable = 1, and count = 1f
+# 
+# At time                 345 clear = 1, enable = 1, and count = 20
+# 
+# At time                 355 clear = 1, enable = 1, and count = 21
+# 
+# At time                 365 clear = 1, enable = 1, and count = 22
+# 
+# At time                 375 clear = 1, enable = 1, and count = 23
+# 
+# At time                 385 clear = 1, enable = 1, and count = 24
+# 
+# At time                 395 clear = 1, enable = 1, and count = 25
+# 
+# At time                 405 clear = 1, enable = 1, and count = 26
+# 
+# At time                 415 clear = 1, enable = 1, and count = 27
+# 
+# At time                 425 clear = 1, enable = 1, and count = 28
+# 
+# At time                 435 clear = 1, enable = 1, and count = 29
+# 
+# At time                 445 clear = 1, enable = 1, and count = 2a
+# 
+# At time                 455 clear = 1, enable = 1, and count = 2b
+# 
+# At time                 465 clear = 1, enable = 1, and count = 2c
+# 
+# At time                 475 clear = 1, enable = 1, and count = 2d
+# 
+# At time                 485 clear = 1, enable = 1, and count = 2e
+# 
+# At time                 495 clear = 1, enable = 1, and count = 2f
+# 
+# At time                 505 clear = 1, enable = 1, and count = 30
+# 
+# At time                 515 clear = 1, enable = 1, and count = 31
+# 
+# At time                 525 clear = 1, enable = 1, and count = 32
+# 
+# At time                 535 clear = 1, enable = 1, and count = 33
+# 
+# At time                 545 clear = 1, enable = 1, and count = 34
+# 
+# At time                 555 clear = 1, enable = 1, and count = 35
+# 
+# At time                 565 clear = 1, enable = 1, and count = 36
+# 
+# At time                 575 clear = 1, enable = 1, and count = 37
+# 
+# At time                 585 clear = 1, enable = 1, and count = 38
+# 
+# At time                 595 clear = 1, enable = 1, and count = 39
+# 
+# At time                 605 clear = 1, enable = 1, and count = 3a
+# 
+# At time                 615 clear = 1, enable = 1, and count = 3b
+# 
+# At time                 625 clear = 1, enable = 1, and count = 3c
+# 
+# At time                 635 clear = 1, enable = 1, and count = 3d
+# 
+# At time                 645 clear = 1, enable = 1, and count = 3e
+# 
+# At time                 655 clear = 1, enable = 1, and count = 3f
+# 
+# At time                 665 clear = 1, enable = 1, and count = 40
+# 
+# At time                 675 clear = 1, enable = 1, and count = 41
+# 
+# At time                 685 clear = 1, enable = 1, and count = 42
+# 
+# At time                 695 clear = 1, enable = 1, and count = 43
+# 
+# At time                 705 clear = 1, enable = 1, and count = 44
+# 
+# At time                 715 clear = 1, enable = 1, and count = 45
+# 
+# At time                 725 clear = 1, enable = 1, and count = 46
+# 
+# At time                 735 clear = 1, enable = 1, and count = 47
+# 
+# At time                 745 clear = 1, enable = 1, and count = 48
+# 
+# At time                 755 clear = 1, enable = 1, and count = 49
+# 
+# At time                 765 clear = 1, enable = 1, and count = 4a
+# 
+# At time                 775 clear = 1, enable = 1, and count = 4b
+# 
+# At time                 785 clear = 1, enable = 1, and count = 4c
+# 
+# At time                 795 clear = 1, enable = 1, and count = 4d
+# 
+# At time                 805 clear = 1, enable = 1, and count = 4e
+# 
+# At time                 815 clear = 1, enable = 1, and count = 4f
+# 
+# At time                 825 clear = 1, enable = 1, and count = 50
+# 
+# At time                 835 clear = 1, enable = 1, and count = 51
+# 
+# At time                 845 clear = 1, enable = 1, and count = 52
+# 
+# At time                 855 clear = 1, enable = 1, and count = 53
+# 
+# At time                 865 clear = 1, enable = 1, and count = 54
+# 
+# At time                 875 clear = 1, enable = 1, and count = 55
+# 
+# At time                 885 clear = 1, enable = 1, and count = 56
+# 
+# At time                 895 clear = 1, enable = 1, and count = 57
+# 
+# At time                 905 clear = 1, enable = 1, and count = 58
+# 
+# At time                 915 clear = 1, enable = 1, and count = 59
+# 
+# At time                 925 clear = 1, enable = 1, and count = 5a
+# 
+# At time                 935 clear = 1, enable = 1, and count = 5b
+# 
+# At time                 945 clear = 1, enable = 1, and count = 5c
+# 
+# At time                 955 clear = 1, enable = 1, and count = 5d
+# 
+# At time                 965 clear = 1, enable = 1, and count = 5e
+# 
+# At time                 975 clear = 1, enable = 1, and count = 5f
+# 
+# At time                 985 clear = 1, enable = 1, and count = 60
+# 
+# At time                 995 clear = 1, enable = 1, and count = 61
+# 
+# At time                1005 clear = 1, enable = 1, and count = 62
+# 
+# At time                1015 clear = 1, enable = 1, and count = 63
+# 
+# At time                1025 clear = 1, enable = 1, and count = 64
+# 
+# At time                1035 clear = 1, enable = 1, and count = 65
+# 
+# At time                1045 clear = 1, enable = 1, and count = 66
+# 
+# At time                1055 clear = 1, enable = 1, and count = 67
+# 
+# At time                1065 clear = 1, enable = 1, and count = 68
+# 
+# At time                1075 clear = 1, enable = 1, and count = 69
+# 
+# At time                1085 clear = 1, enable = 1, and count = 6a
+# 
+# At time                1095 clear = 1, enable = 1, and count = 6b
+# 
+# At time                1105 clear = 1, enable = 1, and count = 6c
+# 
+# At time                1115 clear = 1, enable = 1, and count = 6d
+# 
+# At time                1125 clear = 1, enable = 1, and count = 6e
+# 
+# At time                1135 clear = 1, enable = 1, and count = 6f
+# 
+# At time                1145 clear = 1, enable = 1, and count = 70
+# 
+# At time                1155 clear = 1, enable = 1, and count = 71
+# 
+# At time                1165 clear = 1, enable = 1, and count = 72
+# 
+# At time                1175 clear = 1, enable = 1, and count = 73
+# 
+# At time                1185 clear = 1, enable = 1, and count = 74
+# 
+# At time                1195 clear = 1, enable = 1, and count = 75
+# 
+# At time                1205 clear = 1, enable = 1, and count = 76
+# 
+# At time                1215 clear = 1, enable = 1, and count = 77
+# 
+# At time                1225 clear = 1, enable = 1, and count = 78
+# 
+# At time                1235 clear = 1, enable = 1, and count = 79
+# 
+# At time                1245 clear = 1, enable = 1, and count = 7a
+# 
+# At time                1255 clear = 1, enable = 1, and count = 7b
+# 
+# At time                1265 clear = 1, enable = 1, and count = 7c
+# 
+# At time                1275 clear = 1, enable = 1, and count = 7d
+# 
+# At time                1285 clear = 1, enable = 1, and count = 7e
+# 
+# At time                1295 clear = 1, enable = 1, and count = 7f
+# 
+# At time                1305 clear = 1, enable = 1, and count = 80
+# 
+# At time                1315 clear = 1, enable = 1, and count = 81
+# 
+# At time                1325 clear = 1, enable = 1, and count = 82
+# 
+# At time                1335 clear = 1, enable = 1, and count = 83
+# 
+# At time                1345 clear = 1, enable = 1, and count = 84
+# 
+# At time                1355 clear = 1, enable = 1, and count = 85
+# 
+# At time                1365 clear = 1, enable = 1, and count = 86
+# 
+# At time                1375 clear = 1, enable = 1, and count = 87
+# 
+# At time                1385 clear = 1, enable = 1, and count = 88
+# 
+# At time                1395 clear = 1, enable = 1, and count = 89
+# 
+# At time                1405 clear = 1, enable = 1, and count = 8a
+# 
+# At time                1415 clear = 1, enable = 1, and count = 8b
+# 
+# At time                1425 clear = 1, enable = 1, and count = 8c
+# 
+# At time                1435 clear = 1, enable = 1, and count = 8d
+# 
+# At time                1445 clear = 1, enable = 1, and count = 8e
+# 
+# At time                1455 clear = 1, enable = 1, and count = 8f
+# 
+# At time                1465 clear = 1, enable = 1, and count = 90
+# 
+# At time                1475 clear = 1, enable = 1, and count = 91
+# 
+# At time                1485 clear = 1, enable = 1, and count = 92
+# 
+# At time                1495 clear = 1, enable = 1, and count = 93
+# 
+# At time                1505 clear = 1, enable = 1, and count = 94
+# 
+# At time                1515 clear = 1, enable = 1, and count = 95
+# 
+# At time                1525 clear = 1, enable = 1, and count = 96
+# 
+# At time                1535 clear = 1, enable = 1, and count = 97
+# 
+# At time                1545 clear = 1, enable = 1, and count = 98
+# 
+# At time                1555 clear = 1, enable = 1, and count = 99
+# 
+# At time                1565 clear = 1, enable = 1, and count = 9a
+# 
+# At time                1575 clear = 1, enable = 1, and count = 9b
+# 
+# At time                1585 clear = 1, enable = 1, and count = 9c
+# 
+# At time                1595 clear = 1, enable = 1, and count = 9d
+# 
+# At time                1605 clear = 1, enable = 1, and count = 9e
+# 
+# At time                1615 clear = 1, enable = 1, and count = 9f
+# 
+# At time                1625 clear = 1, enable = 1, and count = a0
+# 
+# At time                1635 clear = 1, enable = 1, and count = a1
+# 
+# At time                1645 clear = 1, enable = 1, and count = a2
+# 
+# At time                1655 clear = 1, enable = 1, and count = a3
+# 
+# At time                1665 clear = 1, enable = 1, and count = a4
+# 
+# At time                1675 clear = 1, enable = 1, and count = a5
+# 
+# At time                1685 clear = 1, enable = 1, and count = a6
+# 
+# At time                1695 clear = 1, enable = 1, and count = a7
+# 
+# At time                1705 clear = 1, enable = 1, and count = a8
+# 
+# At time                1715 clear = 1, enable = 1, and count = a9
+# 
+# At time                1725 clear = 1, enable = 1, and count = aa
+# 
+# At time                1735 clear = 1, enable = 1, and count = ab
+# 
+# At time                1745 clear = 1, enable = 1, and count = ac
+# 
+# At time                1755 clear = 1, enable = 1, and count = ad
+# 
+# At time                1765 clear = 1, enable = 1, and count = ae
+# 
+# At time                1775 clear = 1, enable = 1, and count = af
+# 
+# At time                1785 clear = 1, enable = 1, and count = b0
+# 
+# At time                1795 clear = 1, enable = 1, and count = b1
+# 
+# At time                1805 clear = 1, enable = 1, and count = b2
+# 
+# At time                1815 clear = 1, enable = 1, and count = b3
+# 
+# At time                1825 clear = 1, enable = 1, and count = b4
+# 
+# At time                1835 clear = 1, enable = 1, and count = b5
+# 
+# At time                1845 clear = 1, enable = 1, and count = b6
+# 
+# At time                1855 clear = 1, enable = 1, and count = b7
+# 
+# At time                1865 clear = 1, enable = 1, and count = b8
+# 
+# At time                1875 clear = 1, enable = 1, and count = b9
+# 
+# At time                1885 clear = 1, enable = 1, and count = ba
+# 
+# At time                1895 clear = 1, enable = 1, and count = bb
+# 
+# At time                1905 clear = 1, enable = 1, and count = bc
+# 
+# At time                1915 clear = 1, enable = 1, and count = bd
+# 
+# At time                1925 clear = 1, enable = 1, and count = be
+# 
+# At time                1935 clear = 1, enable = 1, and count = bf
+# 
+# At time                1945 clear = 1, enable = 1, and count = c0
+# 
+# At time                1955 clear = 1, enable = 1, and count = c1
+# 
+# At time                1965 clear = 1, enable = 1, and count = c2
+# 
+# At time                1975 clear = 1, enable = 1, and count = c3
+# 
+# At time                1985 clear = 1, enable = 1, and count = c4
+# 
+# At time                1995 clear = 1, enable = 1, and count = c5
+# 
+# At time                2005 clear = 1, enable = 1, and count = c6
+# 
+# At time                2015 clear = 1, enable = 1, and count = c7
+# 
+# At time                2025 clear = 1, enable = 1, and count = c8
+# 
+# At time                2035 clear = 1, enable = 1, and count = c9
+# 
+# At time                2045 clear = 1, enable = 1, and count = ca
+# 
+# At time                2055 clear = 1, enable = 1, and count = cb
+# 
+# At time                2065 clear = 1, enable = 1, and count = cc
+# 
+# At time                2075 clear = 1, enable = 1, and count = cd
+# 
+# At time                2085 clear = 1, enable = 1, and count = ce
+# 
+# At time                2095 clear = 1, enable = 1, and count = cf
+# 
+# At time                2105 clear = 1, enable = 1, and count = d0
+# 
+# At time                2115 clear = 1, enable = 1, and count = d1
+# 
+# At time                2125 clear = 1, enable = 1, and count = d2
+# 
+# At time                2135 clear = 1, enable = 1, and count = d3
+# 
+# At time                2145 clear = 1, enable = 1, and count = d4
+# 
+# At time                2155 clear = 1, enable = 1, and count = d5
+# 
+# At time                2165 clear = 1, enable = 1, and count = d6
+# 
+# At time                2175 clear = 1, enable = 1, and count = d7
+# 
+# At time                2185 clear = 1, enable = 1, and count = d8
+# 
+# At time                2195 clear = 1, enable = 1, and count = d9
+# 
+# At time                2205 clear = 1, enable = 1, and count = da
+# 
+# At time                2215 clear = 1, enable = 1, and count = db
+# 
+# At time                2225 clear = 1, enable = 1, and count = dc
+# 
+# At time                2235 clear = 1, enable = 1, and count = dd
+# 
+# At time                2245 clear = 1, enable = 1, and count = de
+# 
+# At time                2255 clear = 1, enable = 1, and count = df
+# 
+# At time                2265 clear = 1, enable = 1, and count = e0
+# 
+# At time                2275 clear = 1, enable = 1, and count = e1
+# 
+# At time                2285 clear = 1, enable = 1, and count = e2
+# 
+# At time                2295 clear = 1, enable = 1, and count = e3
+# 
+# At time                2305 clear = 1, enable = 1, and count = e4
+# 
+# At time                2315 clear = 1, enable = 1, and count = e5
+# 
+# At time                2325 clear = 1, enable = 1, and count = e6
+# 
+# At time                2335 clear = 1, enable = 1, and count = e7
+# 
+# At time                2345 clear = 1, enable = 1, and count = e8
+# 
+# At time                2355 clear = 1, enable = 1, and count = e9
+# 
+# At time                2365 clear = 1, enable = 1, and count = ea
+# 
+# At time                2375 clear = 1, enable = 1, and count = eb
+# 
+# At time                2385 clear = 1, enable = 1, and count = ec
+# 
+# At time                2395 clear = 1, enable = 1, and count = ed
+# 
+# At time                2405 clear = 1, enable = 1, and count = ee
+# 
+# At time                2415 clear = 1, enable = 1, and count = ef
+# 
+# At time                2425 clear = 1, enable = 1, and count = f0
+# 
+# At time                2435 clear = 1, enable = 1, and count = f1
+# 
+# At time                2445 clear = 1, enable = 1, and count = f2
+# 
+# At time                2455 clear = 1, enable = 1, and count = f3
+# 
+# At time                2465 clear = 1, enable = 1, and count = f4
+# 
+# At time                2475 clear = 1, enable = 1, and count = f5
+# 
+# At time                2485 clear = 1, enable = 1, and count = f6
+# 
+# At time                2495 clear = 1, enable = 1, and count = f7
+# 
+# At time                2505 clear = 1, enable = 1, and count = f8
+# 
+# At time                2515 clear = 1, enable = 1, and count = f9
+# 
+# At time                2525 clear = 1, enable = 1, and count = fa
+# 
+# At time                2535 clear = 1, enable = 1, and count = fb
+# 
+# At time                2545 clear = 1, enable = 1, and count = fc
+# 
+# At time                2555 clear = 1, enable = 1, and count = fd
+# 
+# At time                2565 clear = 1, enable = 1, and count = fe
+# 
+# At time                2575 clear = 1, enable = 1, and count = ff
+# 
+# At time                2585 clear = 1, enable = 1, and count = 00
+# 
+# At time                2595 clear = 1, enable = 1, and count = 01
+# 
+# At time                2605 clear = 1, enable = 1, and count = 02
+# 
+# At time                2615 clear = 1, enable = 1, and count = 03
+# 
+# At time                2625 clear = 1, enable = 1, and count = 04
+# 
+# At time                2630 clear = 0, enable = 1, and count = 00
+# 
+# ** Note: $finish    : /home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_4/eight_bit_counter.v(94)
+#    Time: 2700 ps  Iteration: 0  Instance: /stimulus_counter
+# 1
+# Break in Module stimulus_counter at /home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_4/eight_bit_counter.v line 94

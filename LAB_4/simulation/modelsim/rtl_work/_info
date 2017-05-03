@@ -1,0 +1,98 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_4/simulation/modelsim
+veight_bit_counter
+Z1 !s110 1493773511
+!i10b 1
+!s100 PileIoD8TPg5bzUjZGafc3
+I?_7I?_Mbi^Y8KzD6WO@_^2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1493773302
+Z4 8/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_4/eight_bit_counter.v
+Z5 F/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_4/eight_bit_counter.v
+L0 1
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1493773511.000000
+Z8 !s107 /home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_4/eight_bit_counter.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_4|/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_4/eight_bit_counter.v|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work +incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_4
+Z12 tCvgOpt 0
+vfrequency_divider
+R1
+!i10b 1
+!s100 m4`ZSNCl?@]4U5A7kbTY90
+IBKzPhAMaBm3Rl3lfFIHkl2
+R2
+R0
+R3
+R4
+R5
+L0 35
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vstimulus_counter
+R1
+!i10b 1
+!s100 e?4`L6lXZzB`>`kn;:4^82
+IS29RO?W:mHTB3ne6K[jjU0
+R2
+R0
+R3
+R4
+R5
+L0 83
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vt_ff
+R1
+!i10b 1
+!s100 O4A9nB5EdS;J]>PbHAgd[0
+Igz9MW:W^W?>>n4@2:k0Yn2
+R2
+R0
+R3
+R4
+R5
+L0 69
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
