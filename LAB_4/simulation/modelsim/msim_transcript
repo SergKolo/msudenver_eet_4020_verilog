@@ -571,3 +571,5 @@ run -all
 #    Time: 2700 ps  Iteration: 0  Instance: /stimulus_counter
 # 1
 # Break in Module stimulus_counter at /home/xieerqi/GIT/msudenver_eet_4020_verilog/LAB_4/eight_bit_counter.v line 94
+# End time: 19:42:04 on May 02,2017, Elapsed time: 0:36:41
+# Errors: 0, Warnings: 0

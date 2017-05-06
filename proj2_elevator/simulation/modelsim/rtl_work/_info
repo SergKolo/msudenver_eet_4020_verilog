@@ -1,0 +1,76 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/simulation/modelsim
+velevator
+Z1 !s110 1494005264
+!i10b 1
+!s100 V5oQhCSLd<I7EB@kEn6W:2
+I3IW6VMoXmgCI_2^PH=B`d3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1494004473
+Z4 8/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v
+Z5 F/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v
+L0 1
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1494005263.000000
+Z8 !s107 /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator|/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work +incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator
+Z12 tCvgOpt 0
+vsequence_detector
+R1
+!i10b 1
+!s100 fLl8BQI=]F3N61PYkhHYh2
+IClIlZaQKzaSlhzT7hJaZZ1
+R2
+R0
+R3
+R4
+R5
+L0 31
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vsequence_detector_testbench
+R1
+!i10b 1
+!s100 oi@zcSk<^g_<MhKz0k6Q33
+Ilh>]2FI=`dNUWhAMEbdf80
+R2
+R0
+R3
+R4
+R5
+L0 73
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12

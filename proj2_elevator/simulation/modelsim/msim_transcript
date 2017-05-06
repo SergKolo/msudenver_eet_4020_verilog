@@ -1,0 +1,50 @@
+# do elevator_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying /home/xieerqi/intelFPGA_lite/16.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator {/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:27:43 on May 05,2017
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator" /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v 
+# -- Compiling module elevator
+# -- Compiling module sequence_detector
+# -- Compiling module sequence_detector_testbench
+# 
+# Top level modules:
+# 	sequence_detector_testbench
+# End time: 11:27:44 on May 05,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# 
+# stdin: <EOF>
+vsim work.sequence_detector_testbench
+# vsim work.sequence_detector_testbench 
+# Start time: 11:28:59 on May 05,2017
+# Loading work.sequence_detector_testbench
+# Loading work.elevator
+# Loading work.sequence_detector
+run -all
+# At time                   0 switch is 0000000000 and led xxxxxxxxxx. State xxx 
+# At time                   1 switch is 0000000000 and led xxxxxxxxx0. State 000 
+# At time                  20 switch is 0000000001 and led xxxxxxxxx0. State 000 
+# At time                  23 switch is 0000000001 and led xxxxxxxxx0. State 001 
+# At time                  40 switch is 0000000000 and led xxxxxxxxx0. State 001 
+# At time                  43 switch is 0000000000 and led xxxxxxxxx0. State 011 
+# At time                  45 switch is 0000000000 and led xxxxxxxxx1. State 011 
+# At time                  60 switch is 0000000010 and led xxxxxxxxx1. State 011 
+# At time                  63 switch is 0000000010 and led xxxxxxxxx0. State 000 
+# At time                  80 switch is 0000000000 and led xxxxxxxxx0. State 000 
+# At time                 100 switch is 0000000100 and led xxxxxxxxx0. State 000 
+# ** Note: $finish    : /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(85)
+#    Time: 200 ps  Iteration: 0  Instance: /sequence_detector_testbench
+# 1
+# Break in Module sequence_detector_testbench at /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v line 85
+# End time: 12:50:54 on May 05,2017, Elapsed time: 1:21:55
+# Errors: 0, Warnings: 0

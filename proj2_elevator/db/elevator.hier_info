@@ -1,0 +1,49 @@
+|elevator
+leds[0] <= leds[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= <GND>
+leds[2] <= <GND>
+leds[3] <= <GND>
+leds[4] <= <GND>
+leds[5] <= <GND>
+leds[6] <= <GND>
+leds[7] <= <GND>
+leds[8] <= <GND>
+leds[9] <= <GND>
+sd_state[0] <= sequence_detector:sd0.port0
+sd_state[1] <= sequence_detector:sd0.port0
+sd_state[2] <= sequence_detector:sd0.port0
+switches[0] => switches[0].IN1
+switches[1] => switches[1].IN1
+switches[2] => ~NO_FANOUT~
+switches[3] => ~NO_FANOUT~
+switches[4] => ~NO_FANOUT~
+switches[5] => ~NO_FANOUT~
+switches[6] => ~NO_FANOUT~
+switches[7] => ~NO_FANOUT~
+switches[8] => ~NO_FANOUT~
+switches[9] => ~NO_FANOUT~
+clock => clock.IN1
+
+
+|elevator|sequence_detector:sd0
+current_state[0] <= current_state[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_state[1] <= current_state[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_state[2] <= current_state[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+request <= request~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => request~reg0.DATAIN
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+clock => request~reg0.CLK
+clock => current_state[0]~reg0.CLK
+clock => current_state[1]~reg0.CLK
+clock => current_state[2]~reg0.CLK
+clock => state~4.DATAIN
+
+
