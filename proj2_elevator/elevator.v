@@ -18,9 +18,41 @@ module elevator(leds,sd_state,switches,clock);
 		      leds[0] <= 1;
 		  else
 		      leds[0] <= 0;
-
 	 end
 		  
+endmodule
+
+/* "Pluggable" modules
+ * 
+ */
+ 
+module elevator_car_driver(current_floor,direction,destination,clock);
+    output reg [4:0] current_floor; // 0000 to 1010
+	 input direction; // 0 down, 1 up
+	 input [4:0] destination;
+	 input clock; // Slow clock or implement 2 sec delay here ?
+	 
+	 reg [4:0] counter;
+	 
+	 // which floor do we start at ?
+	 initial begin
+	     current_floor <= 0;
+		  counter <= 0;
+	 end
+	 
+	 always @(posedge clock) begin
+	     current_floor <= counter;
+	 end
+	 
+	 always @(posedge clock) begin
+	 
+	     if ( counter != destination )
+	         if (direction)
+	             counter = counter + 1;
+		      else
+		          counter = counter - 1;
+	 end
+	 
 endmodule
 
 module sequence_detector(current_state,request,clear,switch,clock);
@@ -62,6 +94,48 @@ module sequence_detector(current_state,request,clear,switch,clock);
 	 end
 endmodule
 
+/*
+ *
+ */
+
+/* Test benches
+ * 
+ */
+ 
+module testbench_car_driver;
+
+    reg course,tbclock;
+    reg [9:0] target;
+    wire [9:0] floor;
+
+    // module elevator_car_driver(current_floor,direction,destination,clock);
+    elevator_car_driver cd0(floor,course,target,tbclock);
+    initial
+       tbclock = 1'b0;
+
+    always
+        #1 tbclock = ~tbclock;	
+	 
+    initial begin
+        $monitor("At time",$time," target: %h floor: %h",target,floor);
+        #200 $finish;
+    end
+
+    initial begin
+		  #5 course <= 1;
+		  #1 target <= 5;
+		  
+		  #15 course <= 0;
+		  #1  target <= 3;
+		  
+		  #15 course <= 1;
+		  #1 target <= 10;
+		  
+		  //#45 target <= 10;
+    end
+
+endmodule
+ 
 module sequence_detector_testbench;
 
 reg [9:0] switch_in;
