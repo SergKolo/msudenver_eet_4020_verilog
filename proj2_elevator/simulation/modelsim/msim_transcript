@@ -11,120 +11,43 @@
 # 
 # vlog -vlog01compat -work work +incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator {/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:46:39 on May 06,2017
+# Start time: 19:37:55 on May 09,2017
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator" /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v 
 # -- Compiling module elevator
 # -- Compiling module elevator_car_driver
 # -- Compiling module sequence_detector
+# -- Compiling module testbench_single_request
 # -- Compiling module testbench_car_driver
 # -- Compiling module sequence_detector_testbench
-# 
-# Top level modules:
-# 	testbench_car_driver
-# 	sequence_detector_testbench
-# End time: 14:46:39 on May 06,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# 
+# ** Error: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(262): (vlog-2123) Missing argument for format specification '%b'.
+# End time: 19:37:55 on May 09,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /home/xieerqi/intelFPGA_lite/16.1/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./elevator_run_msim_rtl_verilog.do line 8
+# /home/xieerqi/intelFPGA_lite/16.1/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog -vlog01compat -work work +incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator {/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_..."
 # 
 # stdin: <EOF>
-vsim work.testbench_car_driver
-# vsim work.testbench_car_driver 
-# Start time: 14:46:42 on May 06,2017
-# Loading work.testbench_car_driver
+vsim work.testbench_single_request
+# vsim work.testbench_single_request 
+# Start time: 19:37:59 on May 09,2017
+# Loading work.testbench_single_request
+# Loading work.elevator
 # Loading work.elevator_car_driver
-# ** Warning: (vsim-3015) /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(112): [PCDPC] - Port size (5) does not match connection size (10) for port 'current_floor'. The port definition is at: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(29).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_car_driver/cd0 File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v
-# ** Warning: (vsim-3015) /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(112): [PCDPC] - Port size (5) does not match connection size (10) for port 'destination'. The port definition is at: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(29).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_car_driver/cd0 File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v
+# Loading work.sequence_detector
 run -all
-# At time                   0 target: xxx floor: zZ0
-# At time                   6 target: 005 floor: zZ0
-# At time                   9 target: 005 floor: zZ1
-# At time                  11 target: 005 floor: zZ2
-# At time                  13 target: 005 floor: zZ3
-# At time                  15 target: 005 floor: zZ4
-# At time                  17 target: 005 floor: zZ5
-# At time                  22 target: 003 floor: zZ5
-# At time                  25 target: 003 floor: zZ4
-# At time                  27 target: 003 floor: zZ3
-# ** Note: $finish    : /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(121)
-#    Time: 200 ps  Iteration: 0  Instance: /testbench_car_driver
+# At time                   0 switches:xxxxxxxxxx,lights:xxxxxxxxxx,floor: 0
+# At time                   5 switches:xxxxxxx1xx,lights:xxxxxxxxxx,floor: 0
+# At time                   6 switches:xxxxxxx0xx,lights:xxxxxxxxxx,floor: 0
+# At time                  56 switches:xxxxxxx01x,lights:xxxxxxxxxx,floor: 0
+# At time                  57 switches:xxxxxxx00x,lights:xxxxxxxxxx,floor: 0
+# At time                  63 switches:xxxxxxx00x,lights:xxxxxxx010,floor: 0
+# At time                  67 switches:xxxxxxx00x,lights:xxxxxxx010,floor: 1
+# At time                  75 switches:xxxxxxx00x,lights:xxxxxxx010,floor: 0
+# ** Note: $finish    : /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(200)
+#    Time: 200 ps  Iteration: 0  Instance: /testbench_single_request
 # 1
-# Break in Module testbench_car_driver at /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v line 121
-quit -sim
-# End time: 14:51:20 on May 06,2017, Elapsed time: 0:04:38
-# Errors: 0, Warnings: 2
-vsim work.testbench_car_driver
-# vsim work.testbench_car_driver 
-# Start time: 14:51:34 on May 06,2017
-# Loading work.testbench_car_driver
-# Loading work.elevator_car_driver
-# ** Warning: (vsim-3015) /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(112): [PCDPC] - Port size (5) does not match connection size (10) for port 'current_floor'. The port definition is at: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(29).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_car_driver/cd0 File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v
-# ** Warning: (vsim-3015) /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(112): [PCDPC] - Port size (5) does not match connection size (10) for port 'destination'. The port definition is at: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(29).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_car_driver/cd0 File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v
-run -all
-# At time                   0 target: xxx floor: zZ0
-# At time                   6 target: 005 floor: zZ0
-# At time                   9 target: 005 floor: zZ1
-# At time                  11 target: 005 floor: zZ2
-# At time                  13 target: 005 floor: zZ3
-# At time                  15 target: 005 floor: zZ4
-# At time                  17 target: 005 floor: zZ5
-# At time                  22 target: 003 floor: zZ5
-# At time                  25 target: 003 floor: zZ4
-# At time                  27 target: 003 floor: zZ3
-# ** Note: $finish    : /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(121)
-#    Time: 200 ps  Iteration: 0  Instance: /testbench_car_driver
-# 1
-# Break in Module testbench_car_driver at /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v line 121
-quit -sim
-# End time: 14:51:56 on May 06,2017, Elapsed time: 0:00:22
-# Errors: 0, Warnings: 2
-vlog -vlog01compat -work work +incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:52:03 on May 06,2017
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator" /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v 
-# -- Compiling module elevator
-# -- Compiling module elevator_car_driver
-# -- Compiling module sequence_detector
-# -- Compiling module testbench_car_driver
-# -- Compiling module sequence_detector_testbench
-# 
-# Top level modules:
-# 	testbench_car_driver
-# 	sequence_detector_testbench
-# End time: 14:52:03 on May 06,2017, Elapsed time: 0:00:00
+# Break in Module testbench_single_request at /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v line 200
+# End time: 19:39:32 on May 09,2017, Elapsed time: 0:01:33
 # Errors: 0, Warnings: 0
-vsim work.testbench_car_driver
-# vsim work.testbench_car_driver 
-# Start time: 14:52:09 on May 06,2017
-# Loading work.testbench_car_driver
-# Loading work.elevator_car_driver
-# ** Warning: (vsim-3015) /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(112): [PCDPC] - Port size (5) does not match connection size (10) for port 'current_floor'. The port definition is at: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(29).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_car_driver/cd0 File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v
-# ** Warning: (vsim-3015) /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(112): [PCDPC] - Port size (5) does not match connection size (10) for port 'destination'. The port definition is at: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(29).
-#    Time: 0 ps  Iteration: 0  Instance: /testbench_car_driver/cd0 File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v
-run -all
-# At time                   0 target: xxx floor: zZ0
-# At time                   6 target: 005 floor: zZ0
-# At time                   9 target: 005 floor: zZ1
-# At time                  11 target: 005 floor: zZ2
-# At time                  13 target: 005 floor: zZ3
-# At time                  15 target: 005 floor: zZ4
-# At time                  17 target: 005 floor: zZ5
-# At time                  22 target: 003 floor: zZ5
-# At time                  25 target: 003 floor: zZ4
-# At time                  27 target: 003 floor: zZ3
-# At time                  38 target: 00a floor: zZ3
-# At time                  41 target: 00a floor: zZ4
-# At time                  43 target: 00a floor: zZ5
-# At time                  45 target: 00a floor: zZ6
-# At time                  47 target: 00a floor: zZ7
-# At time                  49 target: 00a floor: zZ8
-# At time                  51 target: 00a floor: zZ9
-# At time                  53 target: 00a floor: zZa
-# ** Note: $finish    : /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v(121)
-#    Time: 200 ps  Iteration: 0  Instance: /testbench_car_driver
-# 1
-# Break in Module testbench_car_driver at /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v line 121

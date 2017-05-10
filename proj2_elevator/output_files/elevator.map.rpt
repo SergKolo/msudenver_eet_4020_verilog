@@ -1,5 +1,5 @@
 Analysis & Synthesis report for elevator
-Sat May  6 14:50:59 2017
+Tue May  9 19:37:29 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -13,14 +13,34 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |elevator|sequence_detector:sd0|state
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: sequence_detector:sd0
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+  8. State Machine - |elevator|sequence_detector:sd9|state
+  9. State Machine - |elevator|sequence_detector:sd8|state
+ 10. State Machine - |elevator|sequence_detector:sd7|state
+ 11. State Machine - |elevator|sequence_detector:sd6|state
+ 12. State Machine - |elevator|sequence_detector:sd5|state
+ 13. State Machine - |elevator|sequence_detector:sd4|state
+ 14. State Machine - |elevator|sequence_detector:sd3|state
+ 15. State Machine - |elevator|sequence_detector:sd2|state
+ 16. State Machine - |elevator|sequence_detector:sd1|state
+ 17. State Machine - |elevator|sequence_detector:sd0|state
+ 18. Registers Removed During Synthesis
+ 19. Removed Registers Triggering Further Register Optimizations
+ 20. General Register Statistics
+ 21. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 22. Parameter Settings for User Entity Instance: sequence_detector:sd0
+ 23. Parameter Settings for User Entity Instance: sequence_detector:sd1
+ 24. Parameter Settings for User Entity Instance: sequence_detector:sd2
+ 25. Parameter Settings for User Entity Instance: sequence_detector:sd3
+ 26. Parameter Settings for User Entity Instance: sequence_detector:sd4
+ 27. Parameter Settings for User Entity Instance: sequence_detector:sd5
+ 28. Parameter Settings for User Entity Instance: sequence_detector:sd6
+ 29. Parameter Settings for User Entity Instance: sequence_detector:sd7
+ 30. Parameter Settings for User Entity Instance: sequence_detector:sd8
+ 31. Parameter Settings for User Entity Instance: sequence_detector:sd9
+ 32. Post-Synthesis Netlist Statistics for Top Partition
+ 33. Elapsed Time Per Partition
+ 34. Analysis & Synthesis Messages
+ 35. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -47,14 +67,14 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat May  6 14:50:59 2017       ;
+; Analysis & Synthesis Status     ; Successful - Tue May  9 19:37:29 2017       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; elevator                                    ;
 ; Top-level Entity Name           ; elevator                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 7                                           ;
-; Total pins                      ; 24                                          ;
+; Total registers                 ; 31                                          ;
+; Total pins                      ; 26                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -185,37 +205,148 @@ agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 4           ;
+; Estimate of Logic utilization (ALMs needed) ; 17          ;
 ;                                             ;             ;
-; Combinational ALUT usage for logic          ; 4           ;
+; Combinational ALUT usage for logic          ; 28          ;
 ;     -- 7 input functions                    ; 0           ;
-;     -- 6 input functions                    ; 0           ;
-;     -- 5 input functions                    ; 1           ;
-;     -- 4 input functions                    ; 1           ;
-;     -- <=3 input functions                  ; 2           ;
+;     -- 6 input functions                    ; 3           ;
+;     -- 5 input functions                    ; 9           ;
+;     -- 4 input functions                    ; 6           ;
+;     -- <=3 input functions                  ; 10          ;
 ;                                             ;             ;
-; Dedicated logic registers                   ; 7           ;
+; Dedicated logic registers                   ; 31          ;
 ;                                             ;             ;
-; I/O pins                                    ; 24          ;
+; I/O pins                                    ; 26          ;
 ;                                             ;             ;
 ; Total DSP Blocks                            ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 7           ;
-; Total fan-out                               ; 55          ;
-; Average fan-out                             ; 0.93        ;
+; Maximum fan-out                             ; 31          ;
+; Total fan-out                               ; 210         ;
+; Average fan-out                             ; 1.89        ;
 +---------------------------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name             ; Entity Name       ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------+-------------------+--------------+
-; |elevator                  ; 4 (0)               ; 7 (1)                     ; 0                 ; 0          ; 24   ; 0            ; |elevator                       ; elevator          ; work         ;
-;    |sequence_detector:sd0| ; 4 (4)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |elevator|sequence_detector:sd0 ; sequence_detector ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------+-------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                            ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name               ; Entity Name         ; Library Name ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------+---------------------+--------------+
+; |elevator                    ; 28 (5)              ; 31 (6)                    ; 0                 ; 0          ; 26   ; 0            ; |elevator                         ; elevator            ; work         ;
+;    |elevator_car_driver:cd0| ; 11 (11)             ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |elevator|elevator_car_driver:cd0 ; elevator_car_driver ; work         ;
+;    |sequence_detector:sd0|   ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |elevator|sequence_detector:sd0   ; sequence_detector   ; work         ;
+;    |sequence_detector:sd1|   ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |elevator|sequence_detector:sd1   ; sequence_detector   ; work         ;
+;    |sequence_detector:sd2|   ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |elevator|sequence_detector:sd2   ; sequence_detector   ; work         ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------+
+; State Machine - |elevator|sequence_detector:sd9|state         ;
++---------------+---------------+---------------+---------------+
+; Name          ; state.state_b ; state.state_c ; state.state_a ;
++---------------+---------------+---------------+---------------+
+; state.state_a ; 0             ; 0             ; 0             ;
+; state.state_b ; 1             ; 0             ; 1             ;
+; state.state_c ; 0             ; 1             ; 1             ;
++---------------+---------------+---------------+---------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------+
+; State Machine - |elevator|sequence_detector:sd8|state         ;
++---------------+---------------+---------------+---------------+
+; Name          ; state.state_b ; state.state_c ; state.state_a ;
++---------------+---------------+---------------+---------------+
+; state.state_a ; 0             ; 0             ; 0             ;
+; state.state_b ; 1             ; 0             ; 1             ;
+; state.state_c ; 0             ; 1             ; 1             ;
++---------------+---------------+---------------+---------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------+
+; State Machine - |elevator|sequence_detector:sd7|state         ;
++---------------+---------------+---------------+---------------+
+; Name          ; state.state_b ; state.state_c ; state.state_a ;
++---------------+---------------+---------------+---------------+
+; state.state_a ; 0             ; 0             ; 0             ;
+; state.state_b ; 1             ; 0             ; 1             ;
+; state.state_c ; 0             ; 1             ; 1             ;
++---------------+---------------+---------------+---------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------+
+; State Machine - |elevator|sequence_detector:sd6|state         ;
++---------------+---------------+---------------+---------------+
+; Name          ; state.state_b ; state.state_c ; state.state_a ;
++---------------+---------------+---------------+---------------+
+; state.state_a ; 0             ; 0             ; 0             ;
+; state.state_b ; 1             ; 0             ; 1             ;
+; state.state_c ; 0             ; 1             ; 1             ;
++---------------+---------------+---------------+---------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------+
+; State Machine - |elevator|sequence_detector:sd5|state         ;
++---------------+---------------+---------------+---------------+
+; Name          ; state.state_b ; state.state_c ; state.state_a ;
++---------------+---------------+---------------+---------------+
+; state.state_a ; 0             ; 0             ; 0             ;
+; state.state_b ; 1             ; 0             ; 1             ;
+; state.state_c ; 0             ; 1             ; 1             ;
++---------------+---------------+---------------+---------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------+
+; State Machine - |elevator|sequence_detector:sd4|state         ;
++---------------+---------------+---------------+---------------+
+; Name          ; state.state_b ; state.state_c ; state.state_a ;
++---------------+---------------+---------------+---------------+
+; state.state_a ; 0             ; 0             ; 0             ;
+; state.state_b ; 1             ; 0             ; 1             ;
+; state.state_c ; 0             ; 1             ; 1             ;
++---------------+---------------+---------------+---------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------+
+; State Machine - |elevator|sequence_detector:sd3|state         ;
++---------------+---------------+---------------+---------------+
+; Name          ; state.state_b ; state.state_c ; state.state_a ;
++---------------+---------------+---------------+---------------+
+; state.state_a ; 0             ; 0             ; 0             ;
+; state.state_b ; 1             ; 0             ; 1             ;
+; state.state_c ; 0             ; 1             ; 1             ;
++---------------+---------------+---------------+---------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------+
+; State Machine - |elevator|sequence_detector:sd2|state         ;
++---------------+---------------+---------------+---------------+
+; Name          ; state.state_b ; state.state_c ; state.state_a ;
++---------------+---------------+---------------+---------------+
+; state.state_a ; 0             ; 0             ; 0             ;
+; state.state_b ; 1             ; 0             ; 1             ;
+; state.state_c ; 0             ; 1             ; 1             ;
++---------------+---------------+---------------+---------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------+
+; State Machine - |elevator|sequence_detector:sd1|state         ;
++---------------+---------------+---------------+---------------+
+; Name          ; state.state_b ; state.state_c ; state.state_a ;
++---------------+---------------+---------------+---------------+
+; state.state_a ; 0             ; 0             ; 0             ;
+; state.state_b ; 1             ; 0             ; 1             ;
+; state.state_c ; 0             ; 1             ; 1             ;
++---------------+---------------+---------------+---------------+
 
 
 Encoding Type:  One-Hot
@@ -235,9 +366,68 @@ Encoding Type:  One-Hot
 +----------------------------------------+----------------------------------------+
 ; Register name                          ; Reason for Removal                     ;
 +----------------------------------------+----------------------------------------+
-; sequence_detector:sd0|current_state[2] ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 1  ;                                        ;
+; request_floor[4]                       ; Merged with request_floor[2]           ;
+; request_floor[2]                       ; Stuck at GND due to stuck port data_in ;
+; elevator_car_driver:cd0|clear[4..7]    ; Stuck at GND due to stuck port data_in ;
+; sequence_detector:sd4|request          ; Stuck at VCC due to stuck port data_in ;
+; sequence_detector:sd5|request          ; Stuck at VCC due to stuck port data_in ;
+; sequence_detector:sd6|request          ; Stuck at VCC due to stuck port data_in ;
+; sequence_detector:sd7|request          ; Stuck at VCC due to stuck port data_in ;
+; request_floor[3]                       ; Stuck at GND due to stuck port data_in ;
+; sequence_detector:sd3|request          ; Lost fanout                            ;
+; sequence_detector:sd8|request          ; Lost fanout                            ;
+; sequence_detector:sd9|request          ; Lost fanout                            ;
+; elevator_car_driver:cd0|clear[3]       ; Lost fanout                            ;
+; sequence_detector:sd3|state.state_c    ; Lost fanout                            ;
+; sequence_detector:sd4|state.state_c    ; Lost fanout                            ;
+; sequence_detector:sd5|state.state_c    ; Lost fanout                            ;
+; sequence_detector:sd6|state.state_c    ; Lost fanout                            ;
+; sequence_detector:sd7|state.state_c    ; Lost fanout                            ;
+; elevator_car_driver:cd0|clear[8]       ; Lost fanout                            ;
+; sequence_detector:sd8|state.state_c    ; Lost fanout                            ;
+; elevator_car_driver:cd0|clear[9]       ; Lost fanout                            ;
+; sequence_detector:sd9|state.state_c    ; Lost fanout                            ;
+; sequence_detector:sd3|state.state_b    ; Lost fanout                            ;
+; sequence_detector:sd3|state.state_a    ; Lost fanout                            ;
+; sequence_detector:sd4|state.state_b    ; Lost fanout                            ;
+; sequence_detector:sd4|state.state_a    ; Lost fanout                            ;
+; sequence_detector:sd5|state.state_b    ; Lost fanout                            ;
+; sequence_detector:sd5|state.state_a    ; Lost fanout                            ;
+; sequence_detector:sd6|state.state_b    ; Lost fanout                            ;
+; sequence_detector:sd6|state.state_a    ; Lost fanout                            ;
+; sequence_detector:sd7|state.state_b    ; Lost fanout                            ;
+; sequence_detector:sd7|state.state_a    ; Lost fanout                            ;
+; sequence_detector:sd8|state.state_b    ; Lost fanout                            ;
+; sequence_detector:sd8|state.state_a    ; Lost fanout                            ;
+; sequence_detector:sd9|state.state_b    ; Lost fanout                            ;
+; sequence_detector:sd9|state.state_a    ; Lost fanout                            ;
+; Total Number of Removed Registers = 38 ;                                        ;
 +----------------------------------------+----------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                 ;
++-------------------------------+---------------------------+---------------------------------------------------------------------------------+
+; Register name                 ; Reason for Removal        ; Registers Removed due to This Register                                          ;
++-------------------------------+---------------------------+---------------------------------------------------------------------------------+
+; request_floor[2]              ; Stuck at GND              ; elevator_car_driver:cd0|clear[4], elevator_car_driver:cd0|clear[5],             ;
+;                               ; due to stuck port data_in ; elevator_car_driver:cd0|clear[6], elevator_car_driver:cd0|clear[7],             ;
+;                               ;                           ; sequence_detector:sd4|request, sequence_detector:sd5|request,                   ;
+;                               ;                           ; sequence_detector:sd6|request, sequence_detector:sd7|request, request_floor[3], ;
+;                               ;                           ; sequence_detector:sd3|request, sequence_detector:sd8|request,                   ;
+;                               ;                           ; elevator_car_driver:cd0|clear[3], sequence_detector:sd3|state.state_c,          ;
+;                               ;                           ; sequence_detector:sd4|state.state_c, sequence_detector:sd5|state.state_c,       ;
+;                               ;                           ; sequence_detector:sd6|state.state_c, sequence_detector:sd7|state.state_c,       ;
+;                               ;                           ; elevator_car_driver:cd0|clear[8], sequence_detector:sd8|state.state_c,          ;
+;                               ;                           ; sequence_detector:sd3|state.state_b, sequence_detector:sd3|state.state_a,       ;
+;                               ;                           ; sequence_detector:sd4|state.state_b, sequence_detector:sd4|state.state_a,       ;
+;                               ;                           ; sequence_detector:sd5|state.state_b, sequence_detector:sd5|state.state_a,       ;
+;                               ;                           ; sequence_detector:sd6|state.state_b, sequence_detector:sd6|state.state_a,       ;
+;                               ;                           ; sequence_detector:sd7|state.state_b, sequence_detector:sd7|state.state_a,       ;
+;                               ;                           ; sequence_detector:sd8|state.state_b, sequence_detector:sd8|state.state_a        ;
+; sequence_detector:sd9|request ; Lost Fanouts              ; elevator_car_driver:cd0|clear[9], sequence_detector:sd9|state.state_c,          ;
+;                               ;                           ; sequence_detector:sd9|state.state_b, sequence_detector:sd9|state.state_a        ;
++-------------------------------+---------------------------+---------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -245,12 +435,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 7     ;
+; Total registers                              ; 31    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 1     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -260,7 +450,17 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |elevator|sequence_detector:sd0|Selector0 ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |elevator|request_floor[0]                ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |elevator|sequence_detector:sd9|Selector1 ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |elevator|sequence_detector:sd8|Selector0 ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |elevator|sequence_detector:sd7|Selector0 ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |elevator|sequence_detector:sd6|Selector0 ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |elevator|sequence_detector:sd5|Selector0 ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |elevator|sequence_detector:sd4|Selector1 ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |elevator|sequence_detector:sd3|Selector2 ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |elevator|sequence_detector:sd2|Selector2 ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |elevator|sequence_detector:sd1|Selector2 ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |elevator|sequence_detector:sd0|Selector2 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
 
 
@@ -276,24 +476,134 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sequence_detector:sd1 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; state_a        ; 0     ; Signed Integer                            ;
+; state_b        ; 1     ; Signed Integer                            ;
+; state_c        ; 3     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sequence_detector:sd2 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; state_a        ; 0     ; Signed Integer                            ;
+; state_b        ; 1     ; Signed Integer                            ;
+; state_c        ; 3     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sequence_detector:sd3 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; state_a        ; 0     ; Signed Integer                            ;
+; state_b        ; 1     ; Signed Integer                            ;
+; state_c        ; 3     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sequence_detector:sd4 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; state_a        ; 0     ; Signed Integer                            ;
+; state_b        ; 1     ; Signed Integer                            ;
+; state_c        ; 3     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sequence_detector:sd5 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; state_a        ; 0     ; Signed Integer                            ;
+; state_b        ; 1     ; Signed Integer                            ;
+; state_c        ; 3     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sequence_detector:sd6 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; state_a        ; 0     ; Signed Integer                            ;
+; state_b        ; 1     ; Signed Integer                            ;
+; state_c        ; 3     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sequence_detector:sd7 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; state_a        ; 0     ; Signed Integer                            ;
+; state_b        ; 1     ; Signed Integer                            ;
+; state_c        ; 3     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sequence_detector:sd8 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; state_a        ; 0     ; Signed Integer                            ;
+; state_b        ; 1     ; Signed Integer                            ;
+; state_c        ; 3     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sequence_detector:sd9 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; state_a        ; 0     ; Signed Integer                            ;
+; state_b        ; 1     ; Signed Integer                            ;
+; state_c        ; 3     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 7                           ;
-;     plain             ; 7                           ;
-; arriav_lcell_comb     ; 5                           ;
-;     normal            ; 5                           ;
+; arriav_ff             ; 31                          ;
+;     ENA               ; 1                           ;
+;     plain             ; 30                          ;
+; arriav_lcell_comb     ; 29                          ;
+;     normal            ; 29                          ;
 ;         0 data inputs ; 1                           ;
-;         2 data inputs ; 1                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 1                           ;
-;         5 data inputs ; 1                           ;
-; boundary_port         ; 24                          ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 6                           ;
+;         5 data inputs ; 9                           ;
+;         6 data inputs ; 3                           ;
+; boundary_port         ; 26                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.67                        ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.34                        ;
 +-----------------------+-----------------------------+
 
 
@@ -312,50 +622,58 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Sat May  6 14:50:06 2017
+    Info: Processing started: Tue May  9 19:36:37 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off elevator -c elevator
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Info (12021): Found 5 design units, including 5 entities, in source file elevator.v
+Info (12021): Found 6 design units, including 6 entities, in source file elevator.v
     Info (12023): Found entity 1: elevator File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 1
-    Info (12023): Found entity 2: elevator_car_driver File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 29
-    Info (12023): Found entity 3: sequence_detector File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 58
-    Info (12023): Found entity 4: testbench_car_driver File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 105
-    Info (12023): Found entity 5: sequence_detector_testbench File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 139
+    Info (12023): Found entity 2: elevator_car_driver File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 101
+    Info (12023): Found entity 3: sequence_detector File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 136
+    Info (12023): Found entity 4: testbench_single_request File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 183
+    Info (12023): Found entity 5: testbench_car_driver File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 213
+    Info (12023): Found entity 6: sequence_detector_testbench File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 247
 Info (12127): Elaborating entity "elevator" for the top level hierarchy
-Warning (10034): Output port "leds[9..1]" at elevator.v(6) has no driver File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 6
-Info (12128): Elaborating entity "sequence_detector" for hierarchy "sequence_detector:sd0" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 13
+Warning (10034): Output port "leds[9..3]" at elevator.v(5) has no driver File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
+Info (12128): Elaborating entity "elevator_car_driver" for hierarchy "elevator_car_driver:cd0" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 15
+Warning (10230): Verilog HDL assignment warning at elevator.v(125): truncated value with size 32 to match size of target (5) File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 125
+Warning (10230): Verilog HDL assignment warning at elevator.v(127): truncated value with size 32 to match size of target (5) File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 127
+Info (12128): Elaborating entity "sequence_detector" for hierarchy "sequence_detector:sd0" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 19
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "leds[1]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 6
-    Warning (13410): Pin "leds[2]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 6
-    Warning (13410): Pin "leds[3]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 6
-    Warning (13410): Pin "leds[4]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 6
-    Warning (13410): Pin "leds[5]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 6
-    Warning (13410): Pin "leds[6]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 6
-    Warning (13410): Pin "leds[7]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 6
-    Warning (13410): Pin "leds[8]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 6
-    Warning (13410): Pin "leds[9]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 6
-    Warning (13410): Pin "sd_state[2]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 3
+    Warning (13410): Pin "leds[3]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
+    Warning (13410): Pin "leds[4]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
+    Warning (13410): Pin "leds[5]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
+    Warning (13410): Pin "leds[6]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
+    Warning (13410): Pin "leds[7]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
+    Warning (13410): Pin "leds[8]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
+    Warning (13410): Pin "leds[9]" is stuck at GND File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 27 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/output_files/elevator.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 8 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "switches[2]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
-    Warning (15610): No output dependent on input pin "switches[3]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
-    Warning (15610): No output dependent on input pin "switches[4]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
-    Warning (15610): No output dependent on input pin "switches[5]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
-    Warning (15610): No output dependent on input pin "switches[6]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
-    Warning (15610): No output dependent on input pin "switches[7]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
-    Warning (15610): No output dependent on input pin "switches[8]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
-    Warning (15610): No output dependent on input pin "switches[9]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 5
-Info (21057): Implemented 31 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 7 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "switches[3]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 4
+    Warning (15610): No output dependent on input pin "switches[4]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 4
+    Warning (15610): No output dependent on input pin "switches[5]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 4
+    Warning (15610): No output dependent on input pin "switches[6]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 4
+    Warning (15610): No output dependent on input pin "switches[7]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 4
+    Warning (15610): No output dependent on input pin "switches[8]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 4
+    Warning (15610): No output dependent on input pin "switches[9]" File: /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/elevator.v Line: 4
+Info (21057): Implemented 62 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
-    Info (21059): Implemented 13 output pins
-    Info (21061): Implemented 7 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
-    Info: Peak virtual memory: 1015 megabytes
-    Info: Processing ended: Sat May  6 14:50:59 2017
-    Info: Elapsed time: 00:00:53
-    Info: Total CPU time (on all processors): 00:00:59
+    Info (21059): Implemented 15 output pins
+    Info (21061): Implemented 36 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
+    Info: Peak virtual memory: 1013 megabytes
+    Info: Processing ended: Tue May  9 19:37:29 2017
+    Info: Elapsed time: 00:00:52
+    Info: Total CPU time (on all processors): 00:01:04
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/xieerqi/GIT/msudenver_eet_4020_verilog/proj2_elevator/output_files/elevator.map.smsg.
 
 

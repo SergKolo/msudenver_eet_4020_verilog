@@ -1,4 +1,58 @@
 
+State Machine - |elevator|sequence_detector:sd9|state
+Name state.state_b state.state_c state.state_a 
+state.state_a 0 0 0 
+state.state_b 1 0 1 
+state.state_c 0 1 1 
+
+State Machine - |elevator|sequence_detector:sd8|state
+Name state.state_b state.state_c state.state_a 
+state.state_a 0 0 0 
+state.state_b 1 0 1 
+state.state_c 0 1 1 
+
+State Machine - |elevator|sequence_detector:sd7|state
+Name state.state_b state.state_c state.state_a 
+state.state_a 0 0 0 
+state.state_b 1 0 1 
+state.state_c 0 1 1 
+
+State Machine - |elevator|sequence_detector:sd6|state
+Name state.state_b state.state_c state.state_a 
+state.state_a 0 0 0 
+state.state_b 1 0 1 
+state.state_c 0 1 1 
+
+State Machine - |elevator|sequence_detector:sd5|state
+Name state.state_b state.state_c state.state_a 
+state.state_a 0 0 0 
+state.state_b 1 0 1 
+state.state_c 0 1 1 
+
+State Machine - |elevator|sequence_detector:sd4|state
+Name state.state_b state.state_c state.state_a 
+state.state_a 0 0 0 
+state.state_b 1 0 1 
+state.state_c 0 1 1 
+
+State Machine - |elevator|sequence_detector:sd3|state
+Name state.state_b state.state_c state.state_a 
+state.state_a 0 0 0 
+state.state_b 1 0 1 
+state.state_c 0 1 1 
+
+State Machine - |elevator|sequence_detector:sd2|state
+Name state.state_b state.state_c state.state_a 
+state.state_a 0 0 0 
+state.state_b 1 0 1 
+state.state_c 0 1 1 
+
+State Machine - |elevator|sequence_detector:sd1|state
+Name state.state_b state.state_c state.state_a 
+state.state_a 0 0 0 
+state.state_b 1 0 1 
+state.state_c 0 1 1 
+
 State Machine - |elevator|sequence_detector:sd0|state
 Name state.state_b state.state_c state.state_a 
 state.state_a 0 0 0 

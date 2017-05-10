@@ -1,7 +1,12 @@
 |elevator
+current_floor[0] <= elevator_car_driver:cd0.port1
+current_floor[1] <= elevator_car_driver:cd0.port1
+current_floor[2] <= elevator_car_driver:cd0.port1
+current_floor[3] <= elevator_car_driver:cd0.port1
+current_floor[4] <= elevator_car_driver:cd0.port1
 leds[0] <= leds[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-leds[1] <= <GND>
-leds[2] <= <GND>
+leds[1] <= leds[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= leds[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 leds[3] <= <GND>
 leds[4] <= <GND>
 leds[5] <= <GND>
@@ -9,26 +14,68 @@ leds[6] <= <GND>
 leds[7] <= <GND>
 leds[8] <= <GND>
 leds[9] <= <GND>
-sd_state[0] <= sequence_detector:sd0.port0
-sd_state[1] <= sequence_detector:sd0.port0
-sd_state[2] <= sequence_detector:sd0.port0
 switches[0] => switches[0].IN1
 switches[1] => switches[1].IN1
-switches[2] => ~NO_FANOUT~
-switches[3] => ~NO_FANOUT~
-switches[4] => ~NO_FANOUT~
-switches[5] => ~NO_FANOUT~
-switches[6] => ~NO_FANOUT~
-switches[7] => ~NO_FANOUT~
-switches[8] => ~NO_FANOUT~
-switches[9] => ~NO_FANOUT~
-clock => clock.IN1
+switches[2] => switches[2].IN1
+switches[3] => switches[3].IN1
+switches[4] => switches[4].IN1
+switches[5] => switches[5].IN1
+switches[6] => switches[6].IN1
+switches[7] => switches[7].IN1
+switches[8] => switches[8].IN1
+switches[9] => switches[9].IN1
+clock => clock.IN11
+
+
+|elevator|elevator_car_driver:cd0
+clear[0] <= clear[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear[1] <= clear[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear[2] <= clear[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear[3] <= clear[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear[4] <= clear[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear[5] <= clear[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear[6] <= clear[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear[7] <= clear[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear[8] <= clear[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear[9] <= clear[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_floor[0] <= current_floor[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_floor[1] <= current_floor[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_floor[2] <= current_floor[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_floor[3] <= current_floor[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+current_floor[4] <= current_floor[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+direction => counter.OUTPUTSELECT
+direction => counter.OUTPUTSELECT
+direction => counter.OUTPUTSELECT
+direction => counter.OUTPUTSELECT
+direction => counter.OUTPUTSELECT
+destination[0] => Equal0.IN4
+destination[1] => Equal0.IN3
+destination[2] => Equal0.IN2
+destination[3] => Equal0.IN1
+destination[4] => Equal0.IN0
+clock => counter[0].CLK
+clock => counter[1].CLK
+clock => counter[2].CLK
+clock => counter[3].CLK
+clock => counter[4].CLK
+clock => clear[0]~reg0.CLK
+clock => clear[1]~reg0.CLK
+clock => clear[2]~reg0.CLK
+clock => clear[3]~reg0.CLK
+clock => clear[4]~reg0.CLK
+clock => clear[5]~reg0.CLK
+clock => clear[6]~reg0.CLK
+clock => clear[7]~reg0.CLK
+clock => clear[8]~reg0.CLK
+clock => clear[9]~reg0.CLK
+clock => current_floor[0]~reg0.CLK
+clock => current_floor[1]~reg0.CLK
+clock => current_floor[2]~reg0.CLK
+clock => current_floor[3]~reg0.CLK
+clock => current_floor[4]~reg0.CLK
 
 
 |elevator|sequence_detector:sd0
-current_state[0] <= current_state[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-current_state[1] <= current_state[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-current_state[2] <= current_state[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 request <= request~reg0.DB_MAX_OUTPUT_PORT_TYPE
 clear => state.OUTPUTSELECT
 clear => state.OUTPUTSELECT
@@ -41,9 +88,150 @@ switch => state.OUTPUTSELECT
 switch => state.OUTPUTSELECT
 switch => state.OUTPUTSELECT
 clock => request~reg0.CLK
-clock => current_state[0]~reg0.CLK
-clock => current_state[1]~reg0.CLK
-clock => current_state[2]~reg0.CLK
+clock => state~4.DATAIN
+
+
+|elevator|sequence_detector:sd1
+request <= request~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => request~reg0.DATAIN
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+clock => request~reg0.CLK
+clock => state~4.DATAIN
+
+
+|elevator|sequence_detector:sd2
+request <= request~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => request~reg0.DATAIN
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+clock => request~reg0.CLK
+clock => state~4.DATAIN
+
+
+|elevator|sequence_detector:sd3
+request <= request~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => request~reg0.DATAIN
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+clock => request~reg0.CLK
+clock => state~4.DATAIN
+
+
+|elevator|sequence_detector:sd4
+request <= request~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => request~reg0.DATAIN
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+clock => request~reg0.CLK
+clock => state~4.DATAIN
+
+
+|elevator|sequence_detector:sd5
+request <= request~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => request~reg0.DATAIN
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+clock => request~reg0.CLK
+clock => state~4.DATAIN
+
+
+|elevator|sequence_detector:sd6
+request <= request~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => request~reg0.DATAIN
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+clock => request~reg0.CLK
+clock => state~4.DATAIN
+
+
+|elevator|sequence_detector:sd7
+request <= request~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => request~reg0.DATAIN
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+clock => request~reg0.CLK
+clock => state~4.DATAIN
+
+
+|elevator|sequence_detector:sd8
+request <= request~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => request~reg0.DATAIN
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+clock => request~reg0.CLK
+clock => state~4.DATAIN
+
+
+|elevator|sequence_detector:sd9
+request <= request~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => state.OUTPUTSELECT
+clear => request~reg0.DATAIN
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+switch => state.OUTPUTSELECT
+clock => request~reg0.CLK
 clock => state~4.DATAIN
 
 
